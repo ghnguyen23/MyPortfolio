@@ -1,0 +1,1721 @@
+/* =========================================
+   0. FONTS
+   ========================================= */
+@font-face {
+    font-family: 'Canopee';
+    src: url('Assets/Canopee Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MomoTrustDisplay';
+    src: url('Assets/MomoTrustDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* =========================================
+   1. RESET & GLOBAL STYLES
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F7F3EB;
+    color: #333;
+    line-height: 1.6;
+    overscroll-behavior-y: none;
+}
+
+/* =========================================
+   2. LAYOUT & CONTAINER
+   ========================================= */
+.container {
+    padding: 0 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Spacer for visual gaps (Desktop only) */
+.future-section-gap {
+    height: 60px;
+    /* Reduced from 100px */
+}
+
+/* Divider for Sections/Items */
+.item-separator {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+    width: 60%;
+    margin: 80px auto;
+    border: none;
+}
+
+.bottom-links {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================
+   3. HEADER & NAVIGATION
+   ========================================= */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 40px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Subtle Glass Effect */
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.logo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #111;
+}
+
+nav a {
+    text-decoration: none;
+    color: #444;
+    margin-left: 40px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+    color: #050A30;
+    font-weight: 600;
+    margin-left: 30px;
+    transition: all 0.2s ease;
+    margin-left: 30px;
+    transition: all 0.2s ease;
+    font-family: 'MomoTrustDisplay', sans-serif;
+}
+
+.nav-btn:hover {
+    background-color: #050A30;
+    color: #fff;
+    border-color: #050A30;
+    transform: translateY(-2px);
+}
+
+nav a:not(.nav-btn):hover {
+    color: #000;
+}
+
+/* =========================================
+   4. HERO SECTION
+   ========================================= */
+.hero-section {
+    margin-left: -150px;
+    margin-right: -150px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    /* Soft Gradient Background */
+    background: radial-gradient(circle at 50% 50%, #F5F7FF 0%, #FFFFFF 70%);
+    /* FIX: Hero visibility - Full Height on PC */
+    min-height: 100vh;
+    padding-top: 100px;
+    /* Ensure content clears header */
+    padding-bottom: 60px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #050A30;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    font-family: 'Inter', sans-serif;
+}
+
+/* Pulsing Status Light */
+.pulsing-status {
+    width: 12px;
+    height: 12px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+}
+
+.sparkle {
+    font-size: 1rem;
+}
+
+.hero-title {
+    font-family: 'Canopee', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 280px;
+    /* Requested size */
+    line-height: 380px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #050A30;
+    margin-bottom: 20px;
+}
+
+/* Mobile Responsiveness for the huge title */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 15vw;
+        /* Scale comfortably */
+        line-height: normal;
+        /* Adjust line height for smaller screens */
+    }
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #84fab0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    line-height: 1.3;
+    padding-bottom: 5px;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.hero-personal-info {
+    font-family: 'Inter', sans-serif;
+    max-width: 650px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+}
+
+.hero-bio {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.hero-contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: #050A30;
+    font-size: 0.95rem;
+}
+
+.contact-item a {
+    text-decoration: none;
+    color: #050A30;
+    transition: color 0.2s;
+}
+
+.contact-item a:hover,
+.location-link:hover {
+    color: #4f46e5;
+}
+
+.location-link {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px dashed rgba(5, 10, 48, 0.3);
+    transition: all 0.2s;
+}
+
+.location-link:hover {
+    border-bottom-style: solid;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.btn-hero-primary {
+    background-color: #1a56db;
+    color: white;
+    padding: 10px 10px 10px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    font-size: 1rem;
+    font-family: 'MomoTrustDisplay', sans-serif;
+    /* REVERT: Clean font */
+    transition: all 0.2s ease;
+    box-shadow: 0 10px 25px rgba(26, 86, 219, 0.3);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-icon {
+    background-color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a56db;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    flex-shrink: 0;
+}
+
+.btn-icon svg {
+    width: 20px;
+    height: 20px;
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+}
+
+.btn-hero-primary:hover {
+    background-color: #1545ad;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(26, 86, 219, 0.4);
+}
+
+.btn-hero-primary:hover .btn-icon svg {
+    transform: rotate(0deg);
+}
+
+.btn-hero-outline {
+    background-color: transparent;
+    color: #1a1a1a;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid #e5e7eb;
+    transition: all 0.2s ease;
+    font-family: 'MomoTrustDisplay', sans-serif;
+}
+
+.btn-hero-outline:hover {
+    border-color: #000;
+    color: #000;
+}
+
+.btn-hero-primary:active {
+    background-color: #0f3282;
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(26, 86, 219, 0.3);
+}
+
+.btn-hero-secondary {
+    color: #050A30;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 20px;
+    transition: color 0.2s;
+    font-family: 'MomoTrustDisplay', sans-serif;
+}
+
+.btn-hero-secondary:hover {
+    color: #4f46e5;
+}
+
+
+/* =========================================
+   FEATURED SECTION (FIXED LAYOUT)
+   ========================================= */
+.featured-work-section {
+    padding: 80px 40px;
+    /* Clean Solid Background instead of Image */
+    background-color: #F8F9FB;
+    border-radius: 30px;
+    margin-bottom: 80px;
+    overflow: hidden;
+    /* Optional: very subtle border to frame it */
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.featured-title {
+    font-weight: 800;
+    font-style: normal;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #050A30;
+}
+
+/* 1. Target the main link container in its different states */
+.featured-overlap-card:link,
+.featured-overlap-card:visited,
+.featured-overlap-card:hover,
+.featured-overlap-card:active {
+    /* Prevents the default outline that some browsers add on focus/active */
+    outline: none;
+    /* You might need this if the whole card changes color */
+    color: inherit;
+    text-decoration: none;
+    /* Crucial to remove the line */
+}
+
+/* 2. Target the specific text elements inside the link in their states */
+
+/* This targets the 'h3' and 'span' elements inside the card */
+.featured-overlap-card:link .wedo-title,
+.featured-overlap-card:visited .wedo-title,
+.featured-overlap-card:active .wedo-title,
+
+.featured-overlap-card:link .wedo-link,
+.featured-overlap-card:visited .wedo-link,
+.featured-overlap-card:active .wedo-link {
+    /* Sets the color back to the default or desired color */
+    color: inherit !important;
+    /* Removes the underline */
+    text-decoration: none !important;
+}
+
+/* --- Optional: If the 'READ MORE' link changes on hover --- */
+.featured-overlap-card:hover .wedo-link {
+    /* Set the hover style to be exactly the same as the default style */
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.featured-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* --- OVERLAP CARD LOGIC --- */
+.featured-overlap-card {
+    display: grid;
+    /* 12-column grid for precise overlap control */
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    position: relative;
+    /* Clean container */
+    background: transparent;
+    padding-bottom: 40px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    max-width: 95%;
+    /* Increased to use more available space */
+    width: 100%;
+    margin: 0 auto;
+}
+
+.btn-download {
+    font-family: 'MomoTrustDisplay', sans-serif;
+}
+
+/* 1. TEXT CONTAINER (Left, Tucked Behind) */
+.overlap-text-content-container {
+    font-family: 'Inter', sans-serif;
+    /* Spans approx 40% (Cols 1-6) */
+    grid-column: 1 / 7;
+    grid-row: 1;
+    z-index: 1;
+    /* BEHIND Visual */
+
+    display: flex;
+    flex-direction: column;
+    /* Important: Center it vertically so it tucks in the MIDDLE */
+    align-self: stretch;
+    justify-content: center;
+
+    /* Ensure it doesn't stretch to full height if visual is taller */
+    height: auto;
+}
+
+.overlap-text-content {
+    background-color: #EEF2FF;
+    padding: 60px 120px 60px 40px;
+    /* Flat right edge creates seamless tuck feeling */
+    border-radius: 30px 0 0 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: max(480px, 60%);
+    width: 100%;
+
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+}
+
+/* 2. VISUAL CONTAINER (Right, On Top) */
+.overlap-visual-content-container {
+    /* Starts at Col 5, creates overlap with text */
+    grid-column: 5 / -1;
+    grid-row: 1;
+    z-index: 2;
+    /* ON TOP */
+
+    width: 100%;
+    border-radius: 30px;
+    min-height: 600px;
+    height: auto;
+    /* Fixed height for the hero composition */
+    position: relative;
+    overflow: visible;
+
+    /* Center visual content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlap-visual-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.visual-full-image {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    border-radius: 30px;
+}
+
+/* Hover Effect on the image */
+.featured-overlap-card:hover .visual-full-image {
+    transform: scale(1.02);
+    box-shadow: -20px 20px 50px rgba(152, 185, 255, 0.733);
+}
+
+/* Typography Matches */
+.wedo-label {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.wedo-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    color: #111;
+}
+
+.wedo-link {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2563EB;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #2563EB;
+    width: fit-content;
+    padding-bottom: 5px;
+}
+
+/* --- TAGS STYLING --- */
+.project-tags {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.project-tags:not(.reversed-overlap .project-tags) {
+    padding-right: 50px;
+}
+
+.reversed-overlap .project-tags {
+    padding-left: 50px;
+}
+
+.tag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #f0f0f0;
+    color: #444;
+    padding: 6px 14px;
+    border-radius: 8px;
+    /* Slightly rounded as per request */
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* --- REVERSED LAYOUT (ZIG-ZAG) --- */
+/* Only applies on Desktop when grid is active */
+@media (min-width: 1101px) {
+    .reversed-overlap .overlap-text-content-container {
+        /* Right Side */
+        grid-column: 7 / -1;
+        grid-row: 1;
+    }
+
+    .reversed-overlap .overlap-visual-content-container {
+        /* Left Side */
+        grid-column: 1 / 9;
+        /* Spans 8 cols to overlap comfortably */
+        grid-row: 1;
+    }
+
+    .reversed-overlap .overlap-text-content {
+        /* Flat Left Edge */
+        border-radius: 0 30px 30px 0;
+
+        /* Right Align Text */
+        text-align: right;
+        align-items: flex-end;
+        padding: 60px 40px 60px 140px;
+    }
+}
+
+
+/* =========================================
+   STANDARD FEATURED ITEMS (Items 2 & 3)
+   ========================================= */
+.featured-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.reversed-layout {
+    flex-direction: row-reverse;
+}
+
+.f-image {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    height: 300px;
+}
+
+.f-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.featured-item:hover .f-image img {
+    transform: scale(1.05);
+}
+
+.f-content {
+    flex: 1;
+}
+
+.f-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.f-content p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* =========================================
+   WORK / CARDS GRID (CAROUSEL)
+   ========================================= */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    /* Hide overflow from infinite scrolling cards */
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    /* For mask context */
+}
+
+/* Desktop Fade Effect */
+@media (min-width: 768px) {
+    .marquee-container {
+        /* Fades left (100px) and right (100px) to transparent */
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 100px, black calc(100% - 100px), transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 100px, black calc(100% - 100px), transparent 100%);
+    }
+}
+
+.cards-grid {
+    scroll-margin-top: 80px;
+    display: flex;
+    gap: 24px;
+    padding-bottom: 0px;
+    margin-bottom: 60px;
+}
+
+/* 
+   DESKTOP DEFAULT: Infinite Scroll 
+   "on pc website, it should have animation from left to right , infinitely"
+*/
+@media (min-width: 768px) {
+    .cards-grid {
+        width: max-content;
+        /* Allow it to stretch for animation */
+        /* Use a linear infinite animation */
+        animation: scroll-loop 20s linear infinite;
+        overflow-x: visible;
+        /* No scrollbar/drag on desktop */
+        cursor: default;
+    }
+
+    /* Pause animation on hover */
+    .cards-grid:hover {
+        animation-play-state: paused;
+    }
+
+    /* Hide dragbar on Desktop */
+    .drag-bar-container {
+        display: none !important;
+    }
+}
+
+/* 
+   MOBILE/TOUCH: Manual Drag/Scroll
+   "on mobile no need repeating set, just draggable with bar below" 
+*/
+@media (max-width: 767px) {
+    .cards-grid {
+        width: auto;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        cursor: grab;
+        /* Disable animation on mobile */
+        animation: none;
+
+        /* Hide scrollbars */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        margin-bottom: 20px;
+    }
+
+    /* Hide duplicates (Set 2 and 3) on mobile */
+    .cards-grid .app-card:nth-child(n+6) {
+        display: none;
+    }
+
+    .cards-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Show Dragbar on Mobile */
+    .drag-bar-container {
+        display: block;
+    }
+}
+
+/* Keyframes for moving left */
+@keyframes scroll-loop {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        /* Move exactly the width of one set (5 cards * (300px + 24px gap)) = 1620px */
+        transform: translateX(-1620px);
+    }
+}
+
+.app-card {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* RESIZED DIMENSIONS (Larger than 260px, "make it bigger", user suggested ~300px?) */
+    flex: 0 0 auto;
+    width: 300px;
+    /* Slightly bigger */
+
+    scroll-snap-align: center;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* --- VISUAL WRAPPER --- */
+.card-visual-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* Keep it square */
+    border-radius: 20px;
+    /* Slightly tighter than card */
+    overflow: hidden;
+    /* Background color removed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+    /* Force transparent */
+}
+
+.card-visual-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    /* Remove padding to let icon fill */
+}
+
+.app-mockup-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Fill the space */
+    border-radius: 20px;
+    /* Match wrapper radius */
+    transition: transform 0.4s ease;
+}
+
+.app-card:hover .app-mockup-image {
+    transform: scale(1.05);
+}
+
+/* --- FLOATING ACTION BUTTON --- */
+/* Floating button removed */
+
+/* --- CARD TEXT CONTENT --- */
+.card-content {
+    padding: 18px 12px 12px 12px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Tags */
+.card-tags {
+    margin-bottom: 8px;
+    /* Reduced from 12px */
+}
+
+/* Meta Data (Author, Date) */
+/* Meta row removed */
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 12px;
+
+    /* Truncate to 2 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    /* Standard property for compatibility */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Google Play Button */
+.btn-play-store {
+    margin-top: auto;
+    display: inline-block;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    text-decoration: none;
+    transition: transform 0.2s;
+    width: fit-content;
+}
+
+.btn-play-store:hover {
+    background-color: transparent;
+    transform: translateY(-2px);
+}
+
+.btn-play-store img {
+    height: 40px;
+    display: block;
+}
+
+/* --- DRAG BAR VISUAL --- */
+.drag-bar-container {
+    width: 100%;
+    max-width: 200px;
+    height: 4px;
+    background-color: #E5E7EB;
+    border-radius: 4px;
+    margin: 0 auto 20px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.drag-bar-thumb {
+    width: 50px;
+    /* Dynamic via JS later, but initial size */
+    height: 100%;
+    background-color: #050A30;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: grab;
+    transition: background-color 0.2s;
+}
+
+.drag-bar-thumb:active {
+    background-color: #1a56db;
+    cursor: grabbing;
+}
+
+/* =========================================
+   SKILLS SECTION (DRAGGABLE)
+   ========================================= */
+.skills-section {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #050A30 0%, #1a255e 100%);
+    color: white;
+    border-radius: 30px;
+    padding: 60px 40px;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(5, 10, 48, 0.2);
+    overflow: visible;
+}
+
+.skills-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.skills-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-weight: 800;
+    position: relative;
+    letter-spacing: -0.5px;
+    pointer-events: none;
+}
+
+.skills-grid-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1800px;
+    /* Increased max-width for side-by-side */
+    margin: 0 auto;
+    position: relative;
+    text-align: left;
+}
+
+/* DESKTOP: Side-by-Side */
+@media (min-width: 1024px) {
+    .skills-grid-layout {
+        flex-direction: row;
+        gap: 60px;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+
+.skill-category {
+    width: 100%;
+    flex: 1;
+    /* Equal width on desktop */
+}
+
+.skill-category h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 15px;
+    pointer-events: none;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+}
+
+.skills-card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 28px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    transition: transform 0.2s, background 0.2s;
+    cursor: default;
+    height: 160px;
+    /* Fixed height */
+    width: 150px;
+    /* Fixed width */
+    justify-content: center;
+}
+
+.skill-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.skill-icon-box {
+    width: 80px;
+    /* Increased from 56px */
+    height: 80px;
+    /* Increased from 56px */
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    /* Increased emoji size */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s;
+}
+
+.skill-card:hover .skill-icon-box {
+    transform: scale(1.05);
+    /* Subtle pop on hover */
+}
+
+.skill-icon-box svg {
+    width: 40px;
+    height: 40px;
+    fill: currentColor;
+    color: #fff;
+}
+
+.skill-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Image Icon Styling */
+/* Image Icon Styling */
+.skill-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 18px;
+    /* Clean fit */
+}
+
+.skill-pill:hover {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.connect-section {
+    text-align: center;
+    padding: 40px 0 0 0;
+    scroll-margin-top: 80px;
+}
+
+.connect-section h2 {
+    font-family: 'Times New Roman', serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.sub-text {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.btn-download {
+    background-color: #1a56db;
+    color: white;
+    padding: 10px 10px 10px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    transition: all 0.2s ease;
+    box-shadow: 0 5px 15px rgba(26, 86, 219, 0.2);
+}
+
+.btn-icon-small {
+    background-color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a56db;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.btn-icon-small svg {
+    width: 18px;
+    height: 18px;
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+}
+
+.btn-download:hover .btn-icon-small svg {
+    transform: rotate(0deg);
+}
+
+.btn-download:hover {
+    background-color: #1545ad;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(26, 86, 219, 0.3);
+}
+
+.btn-download:active {
+    background-color: #0f3282;
+    transform: translateY(0);
+}
+
+.or-text {
+    display: block;
+    margin: 10px 0;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.email-link {
+    color: #1a56db;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.bottom-links {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.bottom-links a {
+    text-decoration: none;
+    color: #1a56db;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.email-gif-wrapper {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-bottom: 10px;
+}
+
+/* --- NEW FOOTER STYLES --- */
+.email-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.email-copy-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    margin: 0;
+    /* Margin handled by container */
+}
+
+.email-copy-wrapper:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.email-copy-wrapper:active {
+    transform: translateY(0);
+}
+
+.email-text {
+    font-weight: 600;
+    color: #1a56db;
+    font-size: 1rem;
+}
+
+.copy-icon {
+    display: flex;
+    color: #666;
+}
+
+.copy-tooltip {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+}
+
+.copy-tooltip.show {
+    opacity: 1;
+}
+
+.social-links-row {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.social-icon-btn:hover {
+    background-color: #1a56db;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(26, 86, 219, 0.25);
+}
+
+.email-gif-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.email-gif {
+    width: 64px;
+    height: auto;
+    display: block;
+}
+
+/* =========================================
+   ANIMATION CLASSES
+   ========================================= */
+.scroll-hidden {
+    opacity: 0;
+    transition: all 1s ease-out;
+}
+
+.animate-from-left {
+    transform: translateX(-100px);
+}
+
+.animate-from-right {
+    transform: translateX(100px);
+}
+
+.scroll-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* =========================================
+   GLOBAL MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 0px;
+    }
+
+    header {
+        position: relative;
+        padding: 15px 0;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .marquee-container .featured-title {
+        margin-top: 30px;
+    }
+
+    nav {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-btn {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+
+    nav a {
+        margin: 0 15px;
+        display: inline-block;
+    }
+
+    .hero-title {
+        font-size: 5.2rem;
+        margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin: 0 auto 20px auto;
+    }
+
+    .hero-personal-info {
+        padding: 15px 15px;
+        width: 100%;
+    }
+
+    .hero-bio {
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+    }
+
+    .hero-contact-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .btn-hero-primary {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .future-section-gap {
+        display: none;
+    }
+
+    .skills-section {
+        padding: 40px 20px;
+    }
+
+    .skills-section h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .skills-card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .skill-card {
+        width: 100%;
+        height: auto;
+        min-height: 110px;
+        padding: 12px 5px;
+        gap: 8px;
+    }
+
+    .skill-icon-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        font-size: 18px;
+    }
+
+    .skill-icon-box svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .skill-name {
+        font-size: 0.7rem;
+        text-align: center;
+    }
+
+    .featured-work-section {
+        padding: 40px 20px;
+        margin-bottom: 40px;
+
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .skills-section {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .cards-grid {
+        margin-top: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .featured-title {
+        font-size: 2.5rem;
+    }
+
+    .featured-item,
+    .featured-item.reversed-layout {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .f-image {
+        width: 100%;
+        height: 250px;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-section {
+        padding-top: 15px;
+        padding-bottom: 20px;
+        min-height: 90vh;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        /* Increased from 1.8rem for iPhone SE */
+        line-height: 1.1;
+    }
+
+    header {
+        padding-bottom: 10px;
+    }
+}
+
+
+
+/* --- MID-SIZE DESKTOP (1100px - 1400px) --- */
+@media (min-width: 1101px) and (max-width: 1400px) {
+    .wedo-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* --- RESPONSIVE / MOBILE FIXES --- */
+@media (max-width: 1100px) {
+
+
+    .hero-section {
+        max-width: 100%;
+        margin: 0 auto;
+        min-height: 90vh;
+        justify-content: center;
+    }
+
+    /* Tablet & Mobile: Switch to Stacked Layout */
+    .featured-overlap-card {
+        display: flex;
+        flex-direction: column-reverse;
+        /* Visual Top, Text Bottom */
+        gap: 0;
+        max-width: 100%;
+        /* Use full width available */
+        width: 100%;
+        align-items: center;
+        /* Center items */
+        padding-bottom: 0px;
+    }
+
+    .featured-container {
+        gap: 10px;
+    }
+
+    .featured-overlap-card:hover .visual-full-image {
+        transform: scale(1);
+    }
+
+    /* Visual Part (Top) */
+    .overlap-visual-content-container {
+        width: 100%;
+        height: auto;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 2;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .overlap-visual-content {
+        /* Auto height */
+        display: flex;
+        justify-content: center;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    /* Text Part (Bottom) */
+    .overlap-text-content-container {
+        width: 100%;
+        z-index: 1;
+        margin: 0;
+        margin-top: 0;
+        box-shadow: none;
+    }
+
+    .overlap-text-content {
+        background-color: transparent;
+        width: 100%;
+        height: auto !important;
+        border-radius: 0 0 20px 20px;
+        padding: 20px 15px !important;
+        min-height: 0 !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Standard Overlap Mobile (Both Items) -> LEFT ALIGN FORCE */
+    .overlap-text-content {
+        text-align: left !important;
+        align-items: flex-start !important;
+    }
+
+    /* PASTE THIS INSIDE YOUR EXISTING @MEDIA BLOCK */
+
+    .project-tags,
+    .overlap-text-content .project-tags {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        /* STOPS tags from dropping to next line */
+        justify-content: left;
+        width: 100% !important;
+        margin-left: 0 !important;
+        gap: 4px;
+        /* Tighten space between tags */
+    }
+
+    .tag-pill {
+        height: 30px;
+        white-space: nowrap !important;
+        /* STOPS text inside tag from breaking */
+        font-size: 0.65rem !important;
+        /* Make text smaller */
+        padding: 4px 8px !important;
+        /* Reduce padding */
+
+        /* PREVENTS the tag from being squashed */
+        flex-shrink: 0 !important;
+        min-width: auto !important;
+    }
+
+    /* Override any reversed-overlap specifics to match standard on mobile */
+    .reversed-overlap .overlap-text-content {
+        text-align: left !important;
+        align-items: flex-start !important;
+    }
+
+    .reversed-overlap .overlap-text-content .project-tags {
+        justify-content: flex-start !important;
+    }
+
+    /* Typography Matches on Mobile */
+    .wedo-label {
+        /* Removed as we use tags now, but keeping for safety if reused */
+        display: none;
+    }
+
+
+    /* Typography Matches */
+    .wedo-label {
+        margin-top: 20px;
+        font-size: 0.8 rem;
+        color: #555;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+
+    .wedo-title {
+        margin-top: -15px;
+        margin-bottom: 15px;
+        font-family: 'Inter', sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+    }
+
+    .wedo-link {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #2563EB;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 2px solid #2563EB;
+        width: fit-content;
+    }
+
+    .visual-full-image {
+        width: 100%;
+        /* Allow full width */
+        max-width: 90%;
+        /* Scale down slightly to fit nicely */
+        height: auto;
+        /* MAINTAIN ASPECT RATIO - No crop */
+        object-fit: contain;
+        /* Ensure it shows fully */
+        border-radius: 10px;
+        /* Slight radius for image itself if needed */
+    }
+}
+
+/* Hero Email Copy Style */
+.hero-email-copy {
+    cursor: pointer;
+    border-bottom: 1px dashed rgba(5, 10, 48, 0.3);
+    transition: all 0.2s;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.hero-email-copy:hover {
+    color: #4f46e5;
+    border-bottom-style: solid;
+}
+
+.hero-email-copy .copy-tooltip {
+    top: -40px;
+    /* Adjust tooltip position for hero context */
+    background-color: #000;
+    z-index: 100;
+    /* Ensure it appears above other elements */
+}

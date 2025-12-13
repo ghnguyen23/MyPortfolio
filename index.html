@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Nguyen Ha Giang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Lottie Player Script -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <div class="logo">NGUYEN HA GIANG</div>
+            <nav>
+                <a href="#work">Apps</a>
+                <a href="#featured">Case Studies</a>
+                <a href="#contact">Contact me</a>
+                <a href="Assets/Resume-Nguyen_Ha_Giang.pdf" class="nav-btn" download>Download Resume</a>
+            </nav>
+        </header>
+
+        <!-- HERO SECTION -->
+        <div class="hero-section centered-hero">
+
+            <div class="hero-badge">
+                <span class="pulsing-status"></span> Available for works
+            </div>
+
+            <!-- HERO TITLE -->
+            <h1 class="hero-title">
+                PORTFOLIO
+            </h1>
+
+
+            <div class="hero-personal-info">
+                <p class="hero-bio">
+                    I'm Nguyen Thi Ha Giang, an UI/UX Designer. Here's my latest showcase. I hope we’ll have the chance
+                    to Work together.
+                </p>
+
+                <div class="hero-contact-row">
+                    <div class="contact-item">
+                        <span class="icon">📍</span>
+                        <a href="https://www.google.com/maps/search/Hanoi,+Cau+Giay" target="_blank"
+                            class="location-link">Hanoi, Vietnam</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">✉️</span>
+                        <div class="hero-email-copy" onclick="copyEmail('heroCopyTooltip')">
+                            <span>nguyenvn12n@gmail.com</span>
+                            <span class="copy-tooltip" id="heroCopyTooltip">Copy to clipboard</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="#work" class="btn-hero-primary">
+                    <span>See My Work</span>
+                    <span class="btn-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                    </span>
+                </a>
+            </div>
+
+        </div>
+        <div class="future-section-gap"></div>
+
+        <!-- MAIN WORK GRID (MOVED HERE) -->
+        <div class="marquee-container">
+            <h2 class="featured-title">Shipped Projects</h2>
+            <div class="cards-grid" id="work">
+                <!-- SET 1 -->
+                <!-- Card 1: Ghost Detector -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #c4b5fd;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_1.webp" alt="Ghost Detector" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags">
+                            <span class="tag-pill-sm">Entertainment</span>
+                        </div>
+                        <h3 class="card-title">Ghost Detector: Radar & Tracker</h3>
+                        <a href="https://play.google.com/store/apps/details?id=com.ghostdetector.radarfinder.tracker"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Santa Call -->
+                <!-- Card 2: Santa Call -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #fca5a5;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_3.webp" alt="Santa Call" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags">
+                            <span class="tag-pill-sm">Entertainment</span>
+                        </div>
+                        <h3 class="card-title">Prank Call: Santa Video Call</h3>
+                        <a href="https://play.google.com/store/apps/details?id=com.fakecall.prankcall.santacall"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Reverse Audio -->
+                <!-- Card 3: Reverse Audio -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #67e8f9;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_2.webp" alt="Reverse Audio" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags">
+                            <span class="tag-pill-sm">Tools</span>
+                        </div>
+                        <h3 class="card-title">Reverse Audio: Voice Recorder</h3>
+                        <a href="https://play.google.com/store/apps/details?id=reversesingingchallenge.reverseaudio.reversevoicesoundrecorder.backwardvoiceaudio"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Battery Widget -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #fcd34d;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_4.webp" alt="Battery Widget" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags">
+                            <span class="tag-pill-sm">Personalization</span>
+                        </div>
+                        <h3 class="card-title">Emoji Battery Status Widget</h3>
+                        <a href="https://play.google.com/store/apps/details?id=emojibatteryicon.forbattery.androidstatusbar.batterywidget"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5: LED Banner -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #fdba74;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_5.webp" alt="LED Banner" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags">
+                            <span class="tag-pill-sm">Tools</span>
+                        </div>
+                        <h3 class="card-title">LED Banner: Scrolling Text</h3>
+                        <a href="https://play.google.com/store/apps/details?id=ledbannerdisplayapp.ledrunningtext.ledscroller.scrollingtextmessage"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SET 2 (DUPLICATE) -->
+                <!-- Card 1 -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #c4b5fd;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_1.webp" alt="Ghost Detector" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags"><span class="tag-pill-sm">Entertainment</span></div>
+                        <h3 class="card-title">Ghost Detector: Radar & Tracker</h3>
+                        <a href="https://play.google.com/store/apps/details?id=com.ghostdetector.radarfinder.tracker"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #fca5a5;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_3.webp" alt="Santa Call" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags"><span class="tag-pill-sm">Entertainment</span></div>
+                        <h3 class="card-title">Prank Call: Santa Video Call</h3>
+                        <a href="https://play.google.com/store/apps/details?id=com.fakecall.prankcall.santacall"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #67e8f9;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_2.webp" alt="Reverse Audio" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags"><span class="tag-pill-sm">Tools</span></div>
+                        <h3 class="card-title">Reverse Audio: Voice Recorder</h3>
+                        <a href="https://play.google.com/store/apps/details?id=reversesingingchallenge.reverseaudio.reversevoicesoundrecorder.backwardvoiceaudio"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #fcd34d;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_4.webp" alt="Battery Widget" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags"><span class="tag-pill-sm">Personalization</span></div>
+                        <h3 class="card-title">Emoji Battery Status Widget</h3>
+                        <a href="https://play.google.com/store/apps/details?id=emojibatteryicon.forbattery.androidstatusbar.batterywidget"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #fdba74;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_5.webp" alt="LED Banner" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags"><span class="tag-pill-sm">Tools</span></div>
+                        <h3 class="card-title">LED Banner: Scrolling Text</h3>
+                        <a href="https://play.google.com/store/apps/details?id=ledbannerdisplayapp.ledrunningtext.ledscroller.scrollingtextmessage"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SET 3 (DUPLICATE) -->
+                <!-- Card 1 -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #c4b5fd;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_1.webp" alt="Ghost Detector" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags"><span class="tag-pill-sm">Entertainment</span></div>
+                        <h3 class="card-title">Ghost Detector: Radar & Tracker</h3>
+                        <a href="https://play.google.com/store/apps/details?id=com.ghostdetector.radarfinder.tracker"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #fca5a5;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_3.webp" alt="Santa Call" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags"><span class="tag-pill-sm">Entertainment</span></div>
+                        <h3 class="card-title">Prank Call: Santa Video Call</h3>
+                        <a href="https://play.google.com/store/apps/details?id=com.fakecall.prankcall.santacall"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #67e8f9;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_2.webp" alt="Reverse Audio" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags"><span class="tag-pill-sm">Tools</span></div>
+                        <h3 class="card-title">Reverse Audio: Voice Recorder</h3>
+                        <a href="https://play.google.com/store/apps/details?id=reversesingingchallenge.reverseaudio.reversevoicesoundrecorder.backwardvoiceaudio"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #fcd34d;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_4.webp" alt="Battery Widget" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags"><span class="tag-pill-sm">Personalization</span></div>
+                        <h3 class="card-title">Emoji Battery Status Widget</h3>
+                        <a href="https://play.google.com/store/apps/details?id=emojibatteryicon.forbattery.androidstatusbar.batterywidget"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="app-card">
+                    <div class="card-visual-wrapper" style="background-color: #fdba74;">
+                        <div class="card-visual-content">
+                            <img src="images/ico_app_5.webp" alt="LED Banner" class="app-mockup-image"
+                                style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tags"><span class="tag-pill-sm">Tools</span></div>
+                        <h3 class="card-title">LED Banner: Scrolling Text</h3>
+                        <a href="https://play.google.com/store/apps/details?id=ledbannerdisplayapp.ledrunningtext.ledscroller.scrollingtextmessage"
+                            target="_blank" class="btn-play-store">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DRAG BAR (Carousel Control) -->
+        <div class="drag-bar-container">
+            <div class="drag-bar-track"></div>
+            <div class="drag-bar-thumb" id="dragThumb"></div>
+        </div>
+
+        <h2 class="featured-title">Case Studies</h2>
+        <!-- FEATURED SECTION -->
+        <section class="featured-work-section" id="featured">
+
+            <div class="featured-container">
+                <!-- Item 1: Wedo Redesign (Fixed Layout) -->
+                <a href="https://drive.google.com/file/d/13IUBm2LccDqaHSY_2Z7DglLB8ejdb2yc/view?usp=drive_link"
+                    target="_blank" class="featured-overlap-card scroll-hidden animate-from-left">
+
+                    <!-- Text Side (Left - Tucked Behind) -->
+                    <div class="overlap-text-content-container">
+                        <div class="overlap-text-content">
+                            <div class="project-tags">
+                                <span class="tag-pill">📚 Case Study</span>
+                                <span class="tag-pill">📝 Redesign</span>
+                                <span class="tag-pill">📱 Mobile App</span>
+                            </div>
+                            <h3 class="wedo-title">Wedo<br>Redesign</h3>
+                            <span class="wedo-link">READ MORE</span>
+                        </div>
+                    </div>
+
+                    <!-- Visual Side (Right - On Top) -->
+                    <div class="overlap-visual-content-container">
+                        <div class="overlap-visual-content">
+                            <!-- Single Image Composition -->
+                            <img src="images/bg_case_study_1.png" alt="Wedo App Screens" class="visual-full-image">
+                        </div>
+                    </div>
+
+                </a>
+
+                <!-- Item 2: E-Commerce Mobile App (Reversed Layout) -->
+                <a href="https://drive.google.com/file/d/1tB3Uhs3dU4OI3LZcy4MpSeSMnvZKt8HX/view?usp=drive_link"
+                    target="_blank" class="featured-overlap-card reversed-overlap scroll-hidden animate-from-right">
+
+                    <!-- Text Side (Right - Tucked Behind in Zig-Zag) -->
+                    <div class="overlap-text-content-container">
+                        <div class="overlap-text-content">
+                            <!-- Tags Row -->
+                            <div class="project-tags">
+                                <span class="tag-pill">📚 Case Study</span>
+                                <span class="tag-pill">🌐 Website</span>
+                            </div>
+                            <h3 class="wedo-title">E-Commerce<br>Platform</h3>
+                            <span class="wedo-link">VIEW PROJECT</span>
+                        </div>
+                    </div>
+
+                    <!-- Visual Side (Left - On Top in Zig-Zag) -->
+                    <div class="overlap-visual-content-container">
+                        <div class="overlap-visual-content">
+                            <img src="images/bg_case_study_2.png" alt="Wedo App Screens" class="visual-full-image">
+                        </div>
+                    </div>
+
+                </a>
+
+                <!-- Item 3 -->
+                <a href="https://drive.google.com/file/d/1dK7ZL9YGhOZmXmoWRBdFq-trjuebbuuM/view?usp=drive_link"
+                    target="_blank" class="featured-overlap-card scroll-hidden animate-from-left">
+
+                    <!-- Text Side (Left - Tucked Behind) -->
+                    <div class="overlap-text-content-container">
+                        <div class="overlap-text-content">
+                            <div class="project-tags">
+                                <span class="tag-pill">📚 Case Study</span>
+                                <span class="tag-pill">📝 Redesign</span>
+                                <span class="tag-pill">📱 Mobile App</span>
+                            </div>
+                            <h3 class="wedo-title">Nha khoa<br>Ha Noi</h3>
+                            <span class="wedo-link">READ MORE</span>
+                        </div>
+                    </div>
+
+                    <!-- Visual Side (Right - On Top)-->
+                    <div class="overlap-visual-content-container">
+                        <div class="overlap-visual-content">
+                            <!-- Single Image Composition -->
+                            <img src="images/bg_case_study_1.png" alt="Wedo App Screens" class="visual-full-image">
+                        </div>
+                    </div>
+
+                </a>
+
+            </div>
+        </section>
+
+        <!-- MAIN WORK GRID -->
+        <!-- MAIN WORK GRID -->
+        <div class="container">
+
+            <!-- SKILLS SECTION -->
+            <div class="skills-section">
+                <h2>My Toolbox</h2>
+                <div class="skills-grid-layout">
+                    <!-- Technical Skills -->
+                    <div class="skill-category">
+                        <h3>Technical Skills</h3>
+                        <div class="skills-card-grid">
+                            <!-- Card 1: UI Design -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M15.75 2.25H21a.75.75 0 01.75.75v5.25a.75.75 0 01-.75.75h-5.25a.75.75 0 01-.75-.75V3a.75.75 0 01.75-.75zm1.5 1.5v3.75h3.75V3.75h-3.75zM15.75 11.25H21a.75.75 0 01.75.75v5.25a.75.75 0 01-.75.75h-5.25a.75.75 0 01-.75-.75V12a.75.75 0 01.75-.75zm1.5 1.5v3.75h3.75v-3.75h-3.75zM2.25 15.75H7.5a.75.75 0 01.75.75V21a.75.75 0 01-.75.75H2.25A.75.75 0 011.5 21v-4.5a.75.75 0 01.75-.75zm1.5 1.5v3.75H6.75v-3.75H3.75zM2.25 6.75H7.5a.75.75 0 01.75.75V12a.75.75 0 01-.75.75H2.25A.75.75 0 011.5 12V7.5a.75.75 0 01.75-.75zm1.5 1.5v3.75H6.75V8.25H3.75z" />
+                                    </svg>
+                                </div>
+                                <span class="skill-name">UI Design</span>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">⚡</div>
+                                <span class="skill-name">Prototyping</span>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">📐</div>
+                                <span class="skill-name">Wireframing</span>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">🧩</div>
+                                <span class="skill-name">Design Systems</span>
+                            </div>
+                            <!-- Card 5 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">🔍</div>
+                                <span class="skill-name">User Research</span>
+                            </div>
+                            <!-- Card 6: Photoshop -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">
+                                    <img src="images/ico_photoshop.png" alt="Photoshop" class="skill-icon-img">
+                                </div>
+                                <span class="skill-name">Photoshop</span>
+                            </div>
+                            <!-- Card 7: Figma -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">
+                                    <img src="images/ico_figma.png" alt="Figma" class="skill-icon-img">
+                                </div>
+                                <span class="skill-name">Figma</span>
+                            </div>
+                            <!-- Card 8: HTML/CSS -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">💻</div>
+                                <span class="skill-name">HTML/CSS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <div class="skills-card-grid">
+                            <!-- Card 1 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">🤝</div>
+                                <span class="skill-name">Teamwork</span>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">🧠</div>
+                                <span class="skill-name">Problem Solving</span>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">💬</div>
+                                <span class="skill-name">Communication</span>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">📚</div>
+                                <span class="skill-name">Constant Learning</span>
+                            </div>
+                            <!-- Card 5 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">❤️</div>
+                                <span class="skill-name">Empathy</span>
+                            </div>
+                            <!-- Card 6 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">🦎</div>
+                                <span class="skill-name">Adaptability</span>
+                            </div>
+                            <!-- Card 7 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box">😄</div>
+                                <span class="skill-name">Positivity</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="connect-section" id="contact">
+                <div class="email-gif-wrapper">
+                    <img src="Assets/email.gif" alt="Email" class="email-gif">
+                </div>
+
+                <h2>Let's connect!</h2>
+                <p class="sub-text">If you have any questions, want to discuss ideas, or simply want to chat, feel free
+                    to
+                    reach out.</p>
+
+                <a href="#" class="btn-download">
+                    <span>Download Resume</span>
+                    <span class="btn-icon-small">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                    </span>
+                </a>
+                <div class="email-actions">
+                    <div class="email-copy-wrapper" onclick="copyEmail()">
+                        <span class="email-text">nguyenvn12n@gmail.com</span>
+                        <span class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </span>
+                        <span class="copy-tooltip" id="copyTooltip">Copy to clipboard</span>
+                    </div>
+                </div>
+
+                <div class="social-links-row">
+                    <!-- Behance -->
+                    <a href="https://www.behance.net/giang12n" class="social-icon-btn" aria-label="Behance"
+                        target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                            class="bi bi-behance" viewBox="0 0 16 16">
+                            <path
+                                d="M4.654 3c.461 0 .887.035 1.278.14.39.07.711.216.996.391s.497.426.641.747c.14.32.216.711.216 1.137 0 .496-.106.922-.356 1.242-.215.32-.566.606-.997.817.606.176 1.067.496 1.348.922s.461.957.461 1.563c0 .496-.105.922-.285 1.278a2.3 2.3 0 0 1-.782.887c-.32.215-.711.39-1.137.496a5.3 5.3 0 0 1-1.278.176L0 12.803V3zm-.285 3.978c.39 0 .71-.105.957-.285.246-.18.355-.497.355-.887 0-.216-.035-.426-.105-.567a1 1 0 0 0-.32-.355 1.8 1.8 0 0 0-.461-.176c-.176-.035-.356-.035-.567-.035H2.17v2.31c0-.005 2.2-.005 2.2-.005zm.105 4.193c.215 0 .426-.035.606-.07.176-.035.356-.106.496-.216s.25-.215.356-.39c.07-.176.14-.391.14-.641 0-.496-.14-.852-.426-1.102-.285-.215-.676-.32-1.137-.32H2.17v2.734h2.305zm6.858-.035q.428.427 1.278.426c.39 0 .746-.106 1.032-.286q.426-.32.53-.64h1.74c-.286.851-.712 1.457-1.278 1.848-.566.355-1.243.566-2.06.566a4.1 4.1 0 0 1-1.527-.285 2.8 2.8 0 0 1-1.137-.782 2.85 2.85 0 0 1-.712-1.172c-.175-.461-.25-.957-.25-1.528 0-.531.07-1.032.25-1.493.18-.46.426-.852.747-1.207.32-.32.711-.606 1.137-.782a4 4 0 0 1 1.493-.285c.606 0 1.137.105 1.598.355.46.25.817.532 1.102.958.285.39.496.851.641 1.348.07.496.105.996.07 1.563h-5.15c0 .58.21 1.11.496 1.396m2.24-3.732c-.25-.25-.642-.391-1.103-.391-.32 0-.566.07-.781.176s-.356.25-.496.39a.96.96 0 0 0-.25.497c-.036.175-.07.32-.07.46h3.196c-.07-.526-.25-.882-.497-1.132zm-3.127-3.728h3.978v.957h-3.978z" />
+                        </svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/nguyenvn12" class="social-icon-btn" aria-label="Facebook"
+                        target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.641c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.864 10.125-11.854z" />
+                        </svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/giang-nguy%E1%BB%85n-9906382aa/" class="social-icon-btn"
+                        aria-label="LinkedIn" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                </div>
+            </footer>
+
+            <script src="animation.js"></script>
+        </div>
+
+</body>
+
+</html>
