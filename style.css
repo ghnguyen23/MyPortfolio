@@ -516,10 +516,15 @@ nav a:not(.nav-btn):hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: max(480px, 60%);
+    /* Removed large min-height to allow resizing */
+    min-height: 300px;
     width: 100%;
 
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+
+    /* Allow scroll if constrained */
+    overflow-y: auto;
+    scrollbar-width: thin;
 }
 
 /* 2. VISUAL CONTAINER (Right, On Top) */
@@ -532,7 +537,8 @@ nav a:not(.nav-btn):hover {
 
     width: 100%;
     border-radius: 30px;
-    min-height: 600px;
+    /* Removed min-height 600px to allow image to dictate height */
+    min-height: auto;
     height: auto;
     /* Fixed height for the hero composition */
     position: relative;

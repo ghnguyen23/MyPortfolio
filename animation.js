@@ -102,6 +102,30 @@ window.addEventListener('load', () => {
         // Initial setup
         updateDragBar();
     }
+
+    // --- CASE STUDY LAYOUT FIX ---
+    function adjustCaseStudyHeights() {
+        const cards = document.querySelectorAll('.featured-overlap-card');
+        cards.forEach(card => {
+            const visualImg = card.querySelector('.visual-full-image');
+            const textContent = card.querySelector('.overlap-text-content');
+            
+            if (visualImg && textContent) {
+                const imgHeight = visualImg.offsetHeight;
+                // Only apply if image is loaded and substantial
+                if (imgHeight > 50) { 
+                    const maxAllowed = imgHeight * 0.7;
+                    textContent.style.maxHeight = `${maxAllowed}px`;
+                }
+            }
+        });
+    }
+
+    // Run initially
+    adjustCaseStudyHeights();
+
+    // Run on resize
+    window.addEventListener('resize', adjustCaseStudyHeights);
 });
 
 function copyEmail(tooltipId = 'copyTooltip') {
