@@ -349,11 +349,15 @@ nav a:not(.nav-btn):hover {
 .btn-hero-primary:hover {
     background-color: #1545ad;
     transform: translateY(-2px);
-    box-shadow: 0 15px 30px rgba(26, 86, 219, 0.4);
 }
 
 .btn-hero-primary:hover .btn-icon svg {
     transform: rotate(0deg);
+    color: #1545ad;
+}
+
+.btn-download:hover .btn-icon-small svg {
+    color: #1545ad;
 }
 
 .btn-hero-outline {
