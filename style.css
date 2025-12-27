@@ -462,8 +462,8 @@ nav a:not(.nav-btn):hover {
 .featured-container {
     display: flex;
     flex-direction: column;
-    gap: 80px;
-    max-width: 100%;
+    gap: 20px;
+    max-width: 85%;
     margin: 0 auto;
 }
 
@@ -1728,39 +1728,65 @@ nav a:not(.nav-btn):hover {
    NEW MODERN CASE STUDY CARDS (User Request)
    ========================================= */
 .case-study-card {
-    display: flex;
-    align-items: center;
-    min-height: 580px;
+    position: relative;
     border-radius: 40px;
-    padding: 60px 80px;
     margin-bottom: 40px;
+    overflow: hidden;
+    min-height: 500px;
+    /* Ensure logical height */
+    /* Aspect ratio mainly for PC if desired, or let content drive it */
+    aspect-ratio: 2.23 / 1;
+    transform: translateZ(0);
+    /* Force GPU masking (Unity style) */
+}
+
+.card-bg {
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
     background-size: cover;
+    /* Cover ensures full fill without white gaps */
     background-position: center;
     background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.card-body {
     position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-
-    /* FIX: Maintain aspect ratio of the banner image (~6436/2884 = 2.23) */
-    /* This ensures distinct background images are not cropped awkwardly */
-    min-height: auto;
-    aspect-ratio: 2.23 / 1;
+    z-index: 1;
+    display: flex;
+    flex-direction: row-reverse;
+    /* Text Left, Image Right */
+    height: 100%;
+    width: 100%;
 }
 
-/* PC Backgrounds */
-.card-wedo {
-    background-image: url('images/CaseStudies/case_study_web_bg_1.png');
-    background-color: #FFF0E3;
+.card-visual {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Optional: padding if needed */
 }
 
-.card-telephony {
-    background-image: url('images/CaseStudies/case_study_web_bg_2.png');
-    background-color: #F5F3FF;
+.card-visual img {
+    max-width: 90%;
+    height: auto;
+    max-height: 90%;
+    object-fit: contain;
 }
 
-.card-nhakhoa {
-    background-image: url('images/CaseStudies/case_study_web_bg_3.png');
-    background-color: #ECFEFF;
+.card-text {
+    width: 50%;
+    padding-left: 60px;
+    padding-right: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* Align text to left */
 }
 
 .case-study-content {
@@ -1792,23 +1818,20 @@ nav a:not(.nav-btn):hover {
     font-size: 1.25rem;
     font-weight: 500;
     color: #333;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .case-study-timeline {
     font-size: 0.95rem;
     font-weight: 600;
     color: #555;
-    margin-bottom: 40px;
-    background: rgba(255, 255, 255, 0.4);
-    padding: 6px 14px;
-    border-radius: 20px;
     width: fit-content;
 }
 
 .btn-case-study {
     display: inline-flex;
-    padding: 14px 32px;
+    padding: 10px 15px;
+    margin-top: 20px;
     background-color: #0044CC;
     color: #fff;
     border-radius: 50px;
@@ -1820,35 +1843,42 @@ nav a:not(.nav-btn):hover {
 /* =========================================
    MOBILE VERSION (Text in Empty Space)
    ========================================= */
+/* =========================================
+   MOBILE VERSION (Stacked)
+   ========================================= */
+/* =========================================
+   MOBILE VERSION (Stacked)
+   ========================================= */
+/* =========================================
+   MOBILE VERSION (Stacked)
+   ========================================= */
 @media (max-width: 991px) {
     .case-study-card {
         flex-direction: column;
         justify-content: flex-start;
-
         min-height: auto;
-
-        /* FIX: Enforce mobile aspect ratio (798/962 ≈ 0.83) */
-        aspect-ratio: 0.83 / 1;
-
-        /* Remove solid background color so it doesn't show behind */
-        background-color: transparent !important;
-
-        /* Ensure background image fills the ratio-constrained card perfectly */
-        /* FIX: Percentage Layout approach
-           Visual Part = Top ~60%
-           Text Part   = Bottom ~40%
-        */
-        justify-content: flex-end;
-        padding: 0;
-        /* Clear padding, spacing handled in content */
-
+        aspect-ratio: auto;
+        /* Let content decide height to avoid gaps */
         margin: 0 5% 30px 5%;
         border-radius: 30px;
-
-        background-repeat: no-repeat;
+        padding: 0;
+        /* Remove padding to ensure bg hits edges */
+        overflow: hidden;
+        /* Mask background */
+        position: relative;
+        transform: translateZ(0);
+        /* Force GPU layer for clean masking */
     }
 
     /* Mobile Background Images */
+    .card-bg {
+        width: 110%;
+        height: 110%;
+        top: -5%;
+        left: -5%;
+        /* "Unity Style": Child larger than parent, masked by parent */
+    }
+
     .card-wedo {
         background-image: url('images/CaseStudies/case_study_web_mobile_bg_1.png');
     }
@@ -1861,63 +1891,69 @@ nav a:not(.nav-btn):hover {
         background-image: url('images/CaseStudies/case_study_web_mobile_bg_3.png');
     }
 
-    .case-study-content {
-        width: 100%;
-        text-align: left;
-        margin-top: 0;
-
-        /* Occupies exactly the bottom 42% of the card */
-        height: 42%;
-        padding: 0 8% 6% 8%;
-
-        /* Flex layout for tighter control over spacing */
-        display: flex;
+    .card-body {
         flex-direction: column;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+    }
 
-        /* VITAL: Distribute items evenly (Title Top <-> Button Bottom) */
-        justify-content: space-between;
-        gap: 0;
+    .card-visual {
+        width: 100%;
+        flex: 1;
+        min-height: 0;
+        /* Padding for spacing, but keep image fully visible */
+        padding: 40px 0px 0 0px;
+        align-items: flex-end;
+        display: flex;
+        justify-content: center;
+    }
+
+    .card-visual img {
+        width: 100%;
+        /* Full available width */
+        max-height: 100%;
+        object-fit: contain;
+        /* DO NOT CROP */
+        margin-bottom: 0;
+    }
+
+    .card-text {
+        width: 100%;
+        height: auto;
+        flex: 0 0 auto;
+        padding: 5px 30px 30px 30px;
+        /* Tighter padding */
+        justify-content: flex-start;
+        /* Reduced gap */
     }
 
     .case-study-title {
         font-size: 1.5rem;
-        margin-bottom: 0;
         line-height: 1.1;
     }
 
     .case-study-subtitle {
         font-size: 0.95rem;
-        margin-bottom: 0;
-        line-height: 1.35;
+        line-height: 1.4;
     }
 
     .case-study-timeline {
-        margin-bottom: 0;
-        /* Slight extra gap before button */
-        font-size: 0.8rem;
-        display: inline-block;
-
-        /* Remove boxing for mobile */
         background: none;
-        padding: 0;
+        /* Remove container */
         border-radius: 0;
+        display: block;
+        width: auto;
+        font-size: 0.9rem;
+        font-weight: 600;
         color: #555;
     }
 
     .btn-case-study {
-        width: auto;
+        margin-top: 10px;
+        width: fit-content;
         align-self: flex-start;
-        /* Ensure button doesn't stretch */
-        min-width: 140px;
-        padding: 12px 24px;
-        font-size: 0.9rem;
-        margin-top: 0;
-    }
-
-    /* Hide PC-specific or legacy elements to prevent layout breaks */
-    .case-study-visual,
-    .multi-phone-row,
-    .overlap-visual-content-container {
-        display: none !important;
+        /* Align left */
     }
 }
