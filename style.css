@@ -737,8 +737,7 @@ nav a:not(.nav-btn):hover {
     margin-bottom: 60px;
 }
 
-/* 
-   DESKTOP DEFAULT: Infinite Scroll 
+/* DESKTOP DEFAULT: Infinite Scroll 
    "on pc website, it should have animation from left to right , infinitely"
 */
 @media (min-width: 768px) {
@@ -763,8 +762,7 @@ nav a:not(.nav-btn):hover {
     }
 }
 
-/* 
-   MOBILE/TOUCH: Manual Drag/Scroll
+/* MOBILE/TOUCH: Manual Drag/Scroll
    "on mobile no need repeating set, just draggable with bar below" 
 */
 @media (max-width: 767px) {
@@ -1724,561 +1722,201 @@ nav a:not(.nav-btn):hover {
     background-color: #000;
     z-index: 100;
     /* Ensure it appears above other elements */
-}/* =========================================
+}
+
+/* =========================================
    NEW MODERN CASE STUDY CARDS (User Request)
    ========================================= */
 .case-study-card {
     display: flex;
-    flex-direction: column;
-    background: linear-gradient(135deg, #FFF0E3 0%, #FFDEC9 100%);
+    align-items: center;
+    min-height: 580px;
     border-radius: 40px;
-    padding: 60px;
-    gap: 40px;
-    margin-bottom: 60px;
+    padding: 60px 80px;
+    margin-bottom: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
+
+    /* FIX: Maintain aspect ratio of the banner image (~6436/2884 = 2.23) */
+    /* This ensures distinct background images are not cropped awkwardly */
+    min-height: auto;
+    aspect-ratio: 2.23 / 1;
 }
 
-.case-study-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+/* PC Backgrounds */
+.card-wedo {
+    background-image: url('images/CaseStudies/case_study_web_bg_1.png');
+    background-color: #FFF0E3;
 }
 
-@media (min-width: 992px) {
-    .case-study-card {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 60px;
-        min-height: 500px;
-    }
+.card-telephony {
+    background-image: url('images/CaseStudies/case_study_web_bg_2.png');
+    background-color: #F5F3FF;
 }
 
-/* --- Left Side: Content --- */
+.card-nhakhoa {
+    background-image: url('images/CaseStudies/case_study_web_bg_3.png');
+    background-color: #ECFEFF;
+}
+
 .case-study-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    max-width: 480px;
     z-index: 2;
 }
 
 .case-study-title {
-    font-family: 'Inter', sans-serif;
     font-size: 3.5rem;
     font-weight: 800;
-    color: #F05A28;
-    /* Orange-Red from reference */
-    margin-bottom: 15px;
     line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+/* Specific Title Colors */
+.card-wedo .case-study-title {
+    color: #F05A28;
+}
+
+.card-telephony .case-study-title {
+    color: #5B21B6;
+}
+
+.card-nhakhoa .case-study-title {
+    color: #0F766E;
 }
 
 .case-study-subtitle {
     font-size: 1.25rem;
     font-weight: 500;
     color: #333;
-    margin-bottom: 30px;
-    line-height: 1.5;
-}
-
-.case-study-section-header {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #111;
-    margin-bottom: 15px;
-}
-
-.case-study-description {
-    font-size: 1rem;
-    color: #444;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.case-study-list {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-bottom: 20px;
-    color: #444;
-}
-
-.case-study-list li {
-    margin-bottom: 8px;
-    line-height: 1.5;
+    margin-bottom: 25px;
 }
 
 .case-study-timeline {
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 0.95rem;
+    font-weight: 600;
     color: #555;
     margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 6px 14px;
+    border-radius: 20px;
+    width: fit-content;
 }
 
 .btn-case-study {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #0044CC;
-    /* Deep Blue */
-    color: #fff;
     padding: 14px 32px;
+    background-color: #0044CC;
+    color: #fff;
     border-radius: 50px;
-    font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
     transition: background-color 0.2s;
-    width: fit-content;
-    box-shadow: 0 4px 15px rgba(0, 68, 204, 0.2);
 }
 
-.btn-case-study:hover {
-    background-color: #003399;
-}
-
-/* --- Right Side: Visual --- */
-.case-study-visual {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 300px;
-    background-color: rgba(255, 255, 255, 0.4);
-    /* Subtle placeholder bg */
-    border-radius: 20px;
-    border: 2px dashed rgba(0, 0, 0, 0.1);
-    /* Dashed border to indicate 'assign later' */
-    position: relative;
-    overflow: hidden;
-}
-
-.case-study-visual img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 12px;
-}
 /* =========================================
-   MOBILE & ULTRAWIDE REFINEMENTS
+   MOBILE VERSION (Text in Empty Space)
    ========================================= */
-
-/* 1. ULTRAWIDE FIX: Limit max width so it doesn't look disproportionate */
-.featured-container {
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* 2. MOBILE LAYOUT (< 992px) */
 @media (max-width: 991px) {
     .case-study-card {
-        /* Switch to stacked layout: Visual Top, Content Bottom */
-        flex-direction: column-reverse;
-        padding: 24px;
-        gap: 20px;
-        border-radius: 24px;
-        /* "little bit of margin left and right" */
-        margin-left: 20px;
-        margin-right: 20px;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        min-height: auto;
+
+        /* FIX: Enforce mobile aspect ratio (798/962 ≈ 0.83) */
+        aspect-ratio: 0.83 / 1;
+
+        /* Remove solid background color so it doesn't show behind */
+        background-color: transparent !important;
+
+        /* Ensure background image fills the ratio-constrained card perfectly */
+        /* FIX: Percentage Layout approach
+           Visual Part = Top ~60%
+           Text Part   = Bottom ~40%
+        */
+        justify-content: flex-end;
+        padding: 0;
+        /* Clear padding, spacing handled in content */
+
+        margin: 0 5% 30px 5%;
+        border-radius: 30px;
+
+        background-repeat: no-repeat;
     }
 
-    .case-study-visual {
-        width: 100%;
-        min-height: 200px;
-        background-color: rgba(255, 255, 255, 0.5);
+    /* Mobile Background Images */
+    .card-wedo {
+        background-image: url('images/CaseStudies/case_study_web_mobile_bg_1.png');
+    }
+
+    .card-telephony {
+        background-image: url('images/CaseStudies/case_study_web_mobile_bg_2.png');
+    }
+
+    .card-nhakhoa {
+        background-image: url('images/CaseStudies/case_study_web_mobile_bg_3.png');
     }
 
     .case-study-content {
+        width: 100%;
+        text-align: left;
+        margin-top: 0;
+
+        /* Occupies exactly the bottom 40% of the card */
+        /* height: 40%; */
+        padding: 0 8% 6% 8%;
+
+        /* Flex layout for tighter control over spacing */
         display: flex;
         flex-direction: column;
-        position: relative;
-        /* Context for timeline positioning */
+        justify-content: flex-start;
+        gap: 8px;
+        /* Consistent small gap between elements */
     }
 
-    /* Hide Objective, Description, List as requested */
-    .case-study-section-header,
-    .case-study-description,
-    .case-study-list {
-        display: none;
-    }
-
-    /* Title & Timeline Adjustments */
     .case-study-title {
         font-size: 2rem;
-        margin-bottom: 8px;
-        /* Ensure title doesn't overlap absolute timeline if text is long */
-        padding-right: 10px;
-        display: inline-block;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    /* Reposition Timeline to be on the same row/area as Title */
-    /* We'll use Flexbox order or absolute positioning. 
-       Since HTML is: Title -> Subtitle -> ... -> Timeline 
-       It's hard to flex them together without wrapper.
-       Absolute positioning is safest for "Visual Top Right" look without HTML changes.
-    */
-    .case-study-timeline {
-        position: absolute;
-        top: 6px;
-        right: 0;
         margin-bottom: 0;
-        font-size: 0.85rem;
-        color: #666;
-        font-weight: 600;
-        background: rgba(255, 255, 255, 0.4);
-        padding: 4px 10px;
-        border-radius: 20px;
+        line-height: 1.1;
     }
 
     .case-study-subtitle {
-        font-size: 1rem;
-        margin-bottom: 24px;
-        line-height: 1.5;
-        /* Ensure it clears the timeline if title breaks? 
-           With absolute timeline, title usually is short enough "Wedo".
-           If title is "Nha khoa Ha Noi", might overlap.
-           Safer to just let it flow or assume title width.
-        */
-        margin-top: 0px;
+        font-size: 0.95rem;
+        margin-bottom: 0px;
+        line-height: 1.35;
     }
 
-    /* Ensure Title has space */
-    .case-study-title {
-        padding-right: 0;
-        /* Reset */
-        max-width: 65%;
-        /* Leave room for timeline */
-    }
-
-    /* Button full width mobile style */
-    .btn-case-study {
-        width: 100%;
-        text-align: center;
-        margin-top: auto;
-    }
-}
-
-/* Specific Tweak for Title Size on Mobile */
-@media (max-width: 480px) {
-    .case-study-title {
-        font-size: 1.75rem;
-    }
-}
-/* =========================================
-   MOBILE FIX: TIMELINE OVERLAP
-   ========================================= */
-@media (max-width: 991px) {
-
-    /* Allow Title to take full width */
-    .case-study-title {
-        max-width: 100%;
-        padding-right: 0;
-        margin-bottom: 12px;
-        display: block;
-    }
-
-    /* Move Timeline to a separate line below title */
     .case-study-timeline {
-        position: static;
-        /* Remove absolute positioning */
+        margin-bottom: 4px;
+        /* Slight extra gap before button */
+        font-size: 0.8rem;
         display: inline-block;
-        margin-bottom: 20px;
-        background: rgba(255, 255, 255, 0.6);
-        padding: 6px 16px;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        /* Ensure it doesn't span full width unnecessarily */
-        width: fit-content;
-    }
-}
-/* =========================================
-   CASE STUDY COLOR VARIANTS & IMAGE FIXES
-   ========================================= */
 
-/* 1. Remove generic background and placeholder styles */
-.case-study-card {
-    /* Remove default gradient so specific ones take over */
-    background: #fff;
-}
-
-.case-study-visual {
-    /* Remove placeholder background and border */
-    background-color: transparent !important;
-    border: none !important;
-}
-
-/* 2. Specific Color Variants */
-
-/* Item 1: Wedo (Peach/Orange) */
-.card-wedo {
-    background: linear-gradient(135deg, #FFF0E3 0%, #FFDEC9 100%);
-}
-
-.card-wedo .case-study-title {
-    color: #F05A28;
-    /* Orange-Red */
-}
-
-.card-wedo .btn-case-study {
-    background-color: #0044CC;
-    /* Deep Blue */
-}
-
-/* Item 2: Telephony (Purple/Lavender) */
-.card-telephony {
-    background: linear-gradient(135deg, #F5F3FF 0%, #E9D5FF 100%);
-    /* Soft Purple */
-}
-
-.card-telephony .case-study-title {
-    color: #5B21B6;
-    /* Deep Purple */
-}
-
-.card-telephony .btn-case-study {
-    background-color: #0044CC;
-    /* Consistent Blue Button or customize */
-}
-
-/* Item 3: Nha Khoa (Light Blue/Cyan) */
-.card-nhakhoa {
-    background: linear-gradient(135deg, #ECFEFF 0%, #CFFAFE 100%);
-    /* Cyan/Blue */
-}
-
-.card-nhakhoa .case-study-title {
-    color: #0F766E;
-    /* Teal/Deep Cyan */
-}
-
-.card-nhakhoa .btn-case-study {
-    background-color: #0044CC;
-}
-
-
-/* 3. Image Adjustments for "Bigger and Wider" Telephony Image */
-.card-telephony .case-study-visual {
-    /* Allow more space or specialized alignment */
-    align-items: center;
-    justify-content: center;
-    /* Optional: overflow visible if we want it to pop out */
-    overflow: visible;
-}
-
-.card-telephony .case-study-visual img {
-    /* If the image is very wide (laptop), we ensure it uses max width */
-    width: 100%;
-    /* Increase max-width constraint for this specific card if needed */
-    max-width: 120%;
-    /* Slightly larger scale to emphasize "bigger" */
-    transform: scale(1.05);
-    transition: transform 0.5s ease;
-}
-
-.card-telephony:hover .case-study-visual img {
-    transform: scale(1.08);
-    /* Enhance hover effect */
-}
-/* =========================================
-   3-PHONES LAYOUT & SCALING CORRECTIONS
-   ========================================= */
-
-/* 1. Flex Container for 3 Phones */
-.multi-phone-row {
-    display: flex;
-    flex-direction: row;
-    /* Always row, even on mobile as requested */
-    align-items: center;
-    /* Center vertically */
-    justify-content: center;
-    /* Center horizontally */
-    gap: 12px;
-    /* Gap between phones */
-    padding: 20px 0;
-    overflow: visible;
-    /* Allow transforms to show */
-    width: 100%;
-}
-
-.multi-phone-row img.phone-img {
-    height: auto;
-    object-fit: contain;
-    /* Important: Start small enough to fit 3 side-by-side */
-    width: 30%;
-    max-width: 130px;
-    /* Limit max size on big screens so they don't look huge */
-    border-radius: 12px;
-    /* Matching existing rounded look if images are square, but usually phones have own radius */
-
-    /* "Stand together in a row" - already done by flex */
-    /* Enhance look: Add subtle shadow to each phone */
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
-    transition: transform 0.3s ease;
-}
-
-/* Hover Effect: Gentle staggered float */
-.case-study-card:hover .multi-phone-row img:nth-child(1) {
-    transform: translateY(-5px);
-}
-
-.case-study-card:hover .multi-phone-row img:nth-child(2) {
-    transform: translateY(-10px);
-}
-
-.case-study-card:hover .multi-phone-row img:nth-child(3) {
-    transform: translateY(-5px);
-}
-
-
-/* 2. CASE 3 SPECIAL SIZING ("almost half the section") */
-.card-nhakhoa .multi-phone-row {
-    /* "make so that it take about almost half the section"
-        The container .case-study-visual is already flex: 1 (half).
-        We need to make sure the IMAGES fill that space properly.
-     */
-    justify-content: center;
-    /* Ensure phones are large enough */
-}
-
-/* "well the nontransparent part" implies the PNGs have whitespace.
-   We can increase the width/scale for this specific card's images to offset padding.
-*/
-.card-nhakhoa .multi-phone-row img.phone-img {
-    width: 38%;
-    /* Slightly larger basis (38*3 > 100, so we rely on overlap or shrink?) 
-                    Flex default shrink will handle it, but better to be safe: 
-                    32% is safe + gaps. Let's try scaling up via transform. 
-                 */
-    width: 32%;
-    /* Max safe width for 3 items with gap */
-    max-width: 180px;
-    /* Allow them to be bigger than Wedo ones */
-
-    /* Crucial: If the PNG has transparent padding, we can use negative margins 
-        to pull them closer "stand together" 
-     */
-    margin-left: -5px;
-    margin-right: -5px;
-
-    transform: scale(1.1);
-    /* Zoom in to hide transparent borders */
-}
-
-/* Increase specific container height for Case 3 if needed to prevent clip */
-.card-nhakhoa .case-study-visual {
-    /* overflow: visible already set globally for visual, but ensure here */
-    overflow: visible;
-}
-
-
-/* 3. MOBILE: "On mobile it should appear in one row also" */
-@media (max-width: 991px) {
-    .multi-phone-row {
-        /* Ensure it remains a row */
-        flex-direction: row;
-        gap: 8px;
-        /* Smaller gap */
+        /* Remove boxing for mobile */
+        background: none;
         padding: 0;
-        margin-top: 10px;
+        border-radius: 0;
+        color: #555;
     }
 
-    .multi-phone-row img.phone-img {
-        /* On mobile, allow them to stretch a bit but keep 3 in row */
-        width: 32%;
-        max-width: none;
-        /* Remove pixel cap for mobile responsiveness */
-    }
-
-    /* Case 3 Mobile Tweaks specifically */
-    .card-nhakhoa .multi-phone-row img.phone-img {
-        transform: scale(1.15);
-        /* Slightly more zoom on mobile */
-        margin: 0 -4px;
-        /* Pull tighter */
-    }
-}
-/* =========================================
-   REMOVING HOVER & LAYOUT TWEAKS
-   ========================================= */
-
-/* 1. Disable Transform & Shadow on Hover globally for Case Study Card */
-.case-study-card:hover {
-    transform: none !important;
-    box-shadow: none !important;
-    /* Optional: retain default shadow if needed? "remove all hover effect" usually means movement/pop */
-}
-
-/* 2. Disable Staggered Hover Effect on Phones */
-.case-study-card:hover .multi-phone-row img:nth-child(1),
-.case-study-card:hover .multi-phone-row img:nth-child(2),
-.case-study-card:hover .multi-phone-row img:nth-child(3),
-.card-telephony:hover .case-study-visual img {
-    transform: none !important;
-    /* Stop moving */
-}
-
-/* Keep scaling for Case 3 static, DO NOT animate or change on hover */
-.card-nhakhoa .multi-phone-row img.phone-img {
-    transform: scale(1.1) !important;
-    /* Keep the static zoom always */
-}
-
-/* 3. LAYOUT FIXES ("layout still not right") */
-/* Ensure Telephony Text is centered vertically, it looks a bit high in screenshot */
-.case-study-content {
-    justify-content: center;
-    /* Vertical center */
-}
-
-/* Telephony Visual Alignment - it sits too high? */
-.card-telephony .case-study-visual {
-    padding-top: 40px;
-    /* Push laptop down a bit */
-    align-items: flex-end;
-    /* Align to bottom might help it look grounded */
-}
-
-/* Wedo Visual Alignment */
-.card-wedo .case-study-visual {
-    align-items: center;
-}
-
-/* 4. Fix Mobile "Merge with edge" again just in case margins were lost? 
-      (Already done in previous step but confirming safety) */
-@media (max-width: 991px) {
-    .case-study-card {
-        margin-left: 20px;
-        margin-right: 20px;
+    .btn-case-study {
         width: auto;
+        align-self: flex-start;
+        /* Ensure button doesn't stretch */
+        min-width: 140px;
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        margin-top: 4px;
     }
-}
-/* =========================================
-   SCALING FIX FOR PHONES (LAYOUT CORRECTION)
-   ========================================= */
 
-/* Increase max-width to allow phones to fill the section better */
-.multi-phone-row img.phone-img {
-    /* Previously 130px, increasing to 220px to fill the "half section" better on desktop */
-    max-width: 220px;
-    /* Keep width percentage to ensure they fit side-by-side */
-    width: 31%;
-}
-
-/* Specific check for Nha Khoa to ensure it feels "custom" and sizable */
-.card-nhakhoa .multi-phone-row img.phone-img {
-    /* Allow them to be slightly larger if needed, or same */
-    max-width: 240px;
-    width: 32%;
-}
-
-/* Ensure container allows full height for these larger images */
-.case-study-visual {
-    padding: 0;
-    /* Remove padding that might constrain height */
-    height: auto;
-    min-height: 400px;
-    /* Ensure enough height for bigger phones */
+    /* Hide PC-specific or legacy elements to prevent layout breaks */
+    .case-study-visual,
+    .multi-phone-row,
+    .overlap-visual-content-container {
+        display: none !important;
+    }
 }
