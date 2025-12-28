@@ -131,19 +131,19 @@ window.addEventListener('load', () => {
     const appsData = [
         {
             id: 1,
-            title: "Ghost Detector: Radar & Tracker",
-            category: "Entertainment",
+            title: "Reverse Audio: Voice Recorder",
+            category: "Tools",
             icon: "images/Apps/ico_app_1.webp",
             banner: "images/Apps/banner_app_1.png",
-            link: "https://play.google.com/store/apps/details?id=com.ghostdetector.radarfinder.tracker"
+            link: "https://play.google.com/store/apps/details?id=reversesingingchallenge.reverseaudio.reversevoicesoundrecorder.backwardvoiceaudio"
         },
         {
             id: 2,
-            title: "Reverse Audio: Voice Recorder",
-            category: "Tools",
+            title: "Emoji Battery Status Widget",
+            category: "Personalization",
             icon: "images/Apps/ico_app_2.webp",
             banner: "images/Apps/banner_app_2.png",
-            link: "https://play.google.com/store/apps/details?id=reversesingingchallenge.reverseaudio.reversevoicesoundrecorder.backwardvoiceaudio"
+            link: "https://play.google.com/store/apps/details?id=emojibatteryicon.forbattery.androidstatusbar.batterywidget"
         },
         {
             id: 3,
@@ -155,11 +155,11 @@ window.addEventListener('load', () => {
         },
         {
             id: 4,
-            title: "Emoji Battery Status Widget",
-            category: "Personalization",
+            title: "Ghost Detector: Radar & Tracker",
+            category: "Entertainment",
             icon: "images/Apps/ico_app_4.webp",
             banner: "images/Apps/banner_app_4.png",
-            link: "https://play.google.com/store/apps/details?id=emojibatteryicon.forbattery.androidstatusbar.batterywidget"
+            link: "https://play.google.com/store/apps/details?id=com.ghostdetector.radarfinder.tracker"
         },
         {
             id: 5,

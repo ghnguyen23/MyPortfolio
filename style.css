@@ -327,7 +327,6 @@ nav a:not(.nav-btn):hover {
     font-family: 'MomoTrustDisplay', sans-serif;
     /* REVERT: Clean font */
     transition: all 0.2s ease;
-    box-shadow: 0 10px 25px rgba(26, 86, 219, 0.3);
 
     display: inline-flex;
     align-items: center;
@@ -1182,7 +1181,6 @@ nav a:not(.nav-btn):hover {
     gap: 15px;
     margin-bottom: 15px;
     transition: all 0.2s ease;
-    box-shadow: 0 5px 15px rgba(26, 86, 219, 0.2);
 }
 
 .btn-icon-small {
@@ -1212,7 +1210,6 @@ nav a:not(.nav-btn):hover {
 .btn-download:hover {
     background-color: #1545ad;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(26, 86, 219, 0.3);
 }
 
 .btn-download:active {
