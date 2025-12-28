@@ -109,11 +109,11 @@ window.addEventListener('load', () => {
         cards.forEach(card => {
             const visualImg = card.querySelector('.visual-full-image');
             const textContent = card.querySelector('.overlap-text-content');
-            
+
             if (visualImg && textContent) {
                 const imgHeight = visualImg.offsetHeight;
                 // Only apply if image is loaded and substantial
-                if (imgHeight > 50) { 
+                if (imgHeight > 50) {
                     const maxAllowed = imgHeight * 0.7;
                     textContent.style.maxHeight = `${maxAllowed}px`;
                 }
@@ -126,7 +126,155 @@ window.addEventListener('load', () => {
 
     // Run on resize
     window.addEventListener('resize', adjustCaseStudyHeights);
+
+    // --- APP SHOWCASE LOGIC ---
+    const appsData = [
+        {
+            id: 1,
+            title: "Ghost Detector: Radar & Tracker",
+            category: "Entertainment",
+            icon: "images/Apps/ico_app_1.webp",
+            banner: "images/Apps/banner_app_1.png",
+            link: "https://play.google.com/store/apps/details?id=com.ghostdetector.radarfinder.tracker"
+        },
+        {
+            id: 2,
+            title: "Reverse Audio: Voice Recorder",
+            category: "Tools",
+            icon: "images/Apps/ico_app_2.webp",
+            banner: "images/Apps/banner_app_2.png",
+            link: "https://play.google.com/store/apps/details?id=reversesingingchallenge.reverseaudio.reversevoicesoundrecorder.backwardvoiceaudio"
+        },
+        {
+            id: 3,
+            title: "Prank Call: Santa Video Call",
+            category: "Entertainment",
+            icon: "images/Apps/ico_app_3.webp",
+            banner: "images/Apps/banner_app_3.png",
+            link: "https://play.google.com/store/apps/details?id=com.fakecall.prankcall.santacall"
+        },
+        {
+            id: 4,
+            title: "Emoji Battery Status Widget",
+            category: "Personalization",
+            icon: "images/Apps/ico_app_4.webp",
+            banner: "images/Apps/banner_app_4.png",
+            link: "https://play.google.com/store/apps/details?id=emojibatteryicon.forbattery.androidstatusbar.batterywidget"
+        },
+        {
+            id: 5,
+            title: "LED Banner: Scrolling Text",
+            category: "Tools",
+            icon: "images/Apps/ico_app_5.webp",
+            banner: "images/Apps/banner_app_5.png",
+            link: "https://play.google.com/store/apps/details?id=ledbannerdisplayapp.ledrunningtext.ledscroller.scrollingtextmessage"
+        },
+        {
+            id: 6,
+            title: "Fake Video Call - Prank App",
+            category: "Entertainment",
+            icon: "images/Apps/ico_app_6.webp",
+            banner: "images/Apps/banner_app_6.png",
+            link: "https://play.google.com/store/apps/details?id=fakevideocallapp.fakevideo.prankcallapp.fakecallprankfriend.fakephonecall"
+        },
+        {
+            id: 7,
+            title: "Color Call Screen",
+            category: "Personalization",
+            icon: "images/Apps/ico_app_7.webp",
+            banner: "images/Apps/banner_app_7.png",
+            link: "https://play.google.com/store/apps/details?id=colorcallscreenapp.colourcallapp.lovelycallcolorscreen.coolphonecallscreen"
+        },
+        {
+            id: 8,
+            title: "Draw Sketch: Trace Drawing",
+            category: "Tools",
+            icon: "images/Apps/ico_app_8.webp",
+            banner: "images/Apps/banner_app_8.png",
+            link: "https://play.google.com/store/apps/details?id=drawsketch.tracedrawing.draw.trace.sketchpaint"
+        }
+    ];
+
+    const tabsTrack = document.getElementById('appTabsTrack');
+    const detailCard = document.getElementById('appDetailCard');
+
+    if (tabsTrack && detailCard) {
+        let activeIndex = 0;
+
+        function renderTabs() {
+            tabsTrack.innerHTML = '';
+            appsData.forEach((app, index) => {
+                const tab = document.createElement('div');
+                tab.className = `app-tab ${index === activeIndex ? 'active' : ''}`;
+                tab.onclick = () => setActiveApp(index);
+
+                const img = document.createElement('img');
+                img.src = app.icon;
+                img.alt = app.title;
+
+                tab.appendChild(img);
+                tabsTrack.appendChild(tab);
+            });
+        }
+
+        function renderDetail(index) {
+            const app = appsData[index];
+            // Fade out effect could be added here, for now direct update
+            detailCard.innerHTML = `
+                <div class="app-detail-visual" style="background-image: url('${app.banner}');">
+                     <!-- Banner is background or img? Bg is better for cover -->
+                </div>
+                <div class="app-detail-content animate-slide-up">
+                    <div class="app-detail-header">
+                        <img src="${app.icon}" class="app-detail-icon-sm" alt="icon">
+                        <div class="app-detail-meta">
+                            <span class="app-tag">${app.category}</span>
+                            <h3 class="app-title">${app.title}</h3>
+                        </div>
+                    </div>
+                    <div class="app-detail-actions">
+                        <a href="${app.link}" target="_blank" class="btn-play-store-lg">
+                            <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function setActiveApp(index) {
+            if (activeAppIndex === index) return;
+            activeAppIndex = index;
+
+            // Update Tab Styles
+            const tabs = tabsTrack.querySelectorAll('.app-tab');
+            tabs.forEach((tab, i) => {
+                if (i === index) tab.classList.add('active');
+                else tab.classList.remove('active');
+            });
+
+            // Scroll tab into view naturally without shifting the page
+            const activeTab = tabs[index];
+            const trackWidth = tabsTrack.clientWidth;
+            const tabLeft = activeTab.offsetLeft;
+            const tabWidth = activeTab.offsetWidth;
+
+            // Calculate center position
+            const scrollPos = tabLeft - (trackWidth / 2) + (tabWidth / 2);
+
+            tabsTrack.scrollTo({
+                left: scrollPos,
+                behavior: 'smooth'
+            });
+
+            renderDetail(index);
+        }
+
+        let activeAppIndex = 0;
+        renderTabs();
+        renderDetail(0);
+    }
 });
+
 
 function copyEmail(tooltipId = 'copyTooltip') {
     const email = "nguyenvn12n@gmail.com";

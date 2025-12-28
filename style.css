@@ -26,6 +26,10 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-y: scroll;
+    /* Force scrollbar to prevent layout shift */
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -34,6 +38,10 @@ body {
     color: #333;
     line-height: 1.6;
     overscroll-behavior-y: none;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    margin: 0;
 }
 
 /* =========================================
@@ -421,6 +429,7 @@ nav a:not(.nav-btn):hover {
     text-align: center;
     margin-bottom: 40px;
     color: #050A30;
+    margin-top: 20px;
 }
 
 /* 1. Target the main link container in its different states */
@@ -1957,5 +1966,406 @@ nav a:not(.nav-btn):hover {
         width: fit-content;
         align-self: flex-start;
         /* Align left */
+    }
+}
+
+/* =========================================
+   APP SHOWCASE SECTION (Scrollable Tabs)
+   ========================================= */
+.app-showcase-section {
+    padding: 0 0 60px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 85%;
+}
+
+.app-showcase-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Restored gap */
+}
+
+/* Tabs Wrapper & Track */
+.app-tabs-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0;
+    z-index: 2;
+}
+
+.app-tabs-track {
+    display: flex;
+    gap: 10px;
+    /* Kept user's gap adjustment */
+    overflow-x: auto;
+    padding: 10px 20px;
+    /* Restored padding */
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    align-items: center;
+    /* Center alignment again */
+    position: relative;
+    justify-content: center;
+    /* Loop centering kept */
+}
+
+.app-tabs-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* Tab Item */
+.app-tab {
+    flex: 0 0 auto;
+    width: 100px;
+
+    /* Slightly smaller than folder, but big */
+    height: 100px;
+    /* Square/Round for detached look */
+    border-radius: 24px;
+    /* Fully rounded */
+    background: #d0ddf8;
+    border: 2px solid transparent;
+    /* Restore simple border */
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    margin-right: 0;
+    padding: 15px;
+    /* Comfortable padding */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    /* Restore shadow */
+}
+
+.app-tab img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+    border-radius: 10px;
+    /* border: px solid transparent; */
+    /* Keep shadow user liked */
+    transition: transform 0.2s ease;
+}
+
+.app-tab:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.app-tab:hover img {
+    transform: scale(1.1);
+}
+
+.app-tab.active {
+    opacity: 1;
+    transform: scale(1.1);
+    /* background: #fff; */
+
+    background-color: #edf3ff;
+    border-color: #0044CC;
+    /* Active border color */
+    box-shadow: 0 8px 20px rgba(194, 253, 250, 0.25);
+    z-index: 1;
+    height: 100px;
+    /* Same height */
+    position: relative;
+    padding: 15px;
+}
+
+/* Mobile Tab Size Fix */
+@media (max-width: 768px) {
+    .app-tabs-track {
+        justify-content: flex-start;
+        gap: 5px;
+        /* Start align on mobile for scrolling */
+    }
+
+    .app-tab {
+        width: 72px;
+        height: 72px;
+        min-width: 72px;
+        padding: 8px;
+        /* Bigger icons on mobile too */
+    }
+
+    .app-tab.active {
+        height: 80px;
+        /* Smaller pop on mobile */
+    }
+}
+
+/* Detail View */
+.app-detail-card {
+    background: #fff;
+    /* Remove top-left rounding if we want the "folder" to start from edge?
+       Sketch shows tabs starting inside. Let's keep rounding but ensure tabs sit well. */
+    border-radius: 20px;
+    border-top-left-radius: 20px;
+    /* Or 0 if first tab is active? Let's keep smooth. */
+    overflow: visible;
+    /* Allow tab to visually merge */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+    /* Softer shadow */
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    margin-bottom: 40px;
+    z-index: 1;
+}
+
+.app-detail-visual {
+    width: 100%;
+    /* height: 500px; */
+    height: 550px;
+    /* Taller banner for "relaxing" look (approx 16:9 on desktop) */
+    background-size: cover;
+    background-position: center;
+    background-color: #f8f8f8;
+    /* transition: background-image 0.4s ease-in-out; */
+    /* Removed animation */
+    transition: none;
+    position: relative;
+    /* Fix: Rounded corners need to apply to image since overflow is visible now */
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    /* Or match card */
+}
+
+/* Add a subtle overlay so white text (if any) pops, or just to soften */
+
+
+.app-detail-content {
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* Center alignment horizontally as interpreted from "align to middle" */
+    justify-content: space-between;
+    /* Reverted to space-between */
+    gap: 40px;
+    background: #fff;
+    flex: 1;
+
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.app-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.app-detail-icon-sm {
+    width: 90px;
+    height: 90px;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.app-detail-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.app-tag {
+    display: inline-block;
+    padding: 8px 18px;
+    background: #EEF2FF;
+    color: #4F46E5;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    width: fit-content;
+    letter-spacing: 0.5px;
+}
+
+.app-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #050A30;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Button Container */
+.app-detail-actions {
+    display: flex;
+    align-items: center;
+}
+
+.btn-play-store-lg img {
+    height: 110px;
+    /* Bigger button (PC Website) */
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+    display: block;
+}
+
+.btn-play-store-lg:hover img {
+    transform: scale(1.05) translateY(-3px);
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
+}
+
+@media (max-width: 900px) {
+    .app-detail-card {
+        border-radius: 30px;
+    }
+
+    .app-detail-visual {
+        height: 300px;
+        /* Tablet banner height */
+    }
+
+    .app-detail-content {
+        padding: 30px 40px;
+        /* Tighter padding for tablet */
+        gap: 25px;
+    }
+
+    .app-title {
+        font-size: 2rem;
+    }
+
+    .app-detail-icon-sm {
+        width: 72px;
+        height: 72px;
+        border-radius: 18px;
+    }
+
+    .btn-play-store-lg img {
+        height: 64px;
+    }
+}
+
+/* Mobile Responsive - Compact Layout */
+@media (max-width: 768px) {
+    .app-showcase-container {
+        gap: 15px;
+    }
+
+    .app-detail-card {
+        border-radius: 20px;
+        /* Tighter corners */
+        margin-bottom: 20px;
+    }
+
+    .app-detail-visual {
+        height: 160px;
+        /* Kept user's request for smaller banner */
+        aspect-ratio: auto;
+        /* Remove strict ratio to allow custom height */
+    }
+
+    .app-detail-visual::after {
+        display: none;
+        /* Ensure no gradient overlay */
+    }
+
+    .app-detail-content {
+        /* COMPACT LAYOUT */
+        padding: 20px 20px 25px 20px;
+        /* Very tight padding */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .app-detail-header {
+        width: 100%;
+        gap: 12px;
+        /* Improved header layout for mobile */
+        flex-direction: row;
+        /* Keep icon and text side-by-side if fitting, or column */
+        align-items: flex-start;
+    }
+
+    /* Option: Hide large icon on mobile to save space, OR make it very small */
+    .app-detail-icon-sm {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        /* display: none; */
+        /* User hinted "remove the icon?", let's hide it for maximum compactness */
+        display: none;
+    }
+
+    .app-detail-meta {
+        gap: 6px;
+        width: 100%;
+    }
+
+    .app-tag {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        background: #F3F4F6;
+        /* Lighter bg */
+        color: #4B5563;
+        /* Subtler text */
+    }
+
+    .app-title {
+        font-size: 1.4rem;
+        /* Compact title */
+        line-height: 1.2;
+        margin-top: 5px;
+    }
+
+    .app-detail-actions {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .btn-play-store-lg img {
+        height: 42px;
+        /* Small, compact button */
+        width: auto;
+    }
+}
+
+/* Animations */
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    /* Slower, more relaxing */
+}
+
+.animate-slide-up {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
