@@ -194,7 +194,26 @@ window.addEventListener('load', () => {
             link: "https://play.google.com/store/apps/details?id=drawsketch.tracedrawing.draw.trace.sketchpaint"
         }
     ];
+    // --- Case Study Clickable Logic ---
+    const caseCards = document.querySelectorAll('.case-study-card');
+    caseCards.forEach(card => {
+        const linkBtn = card.querySelector('.btn-case-study');
+        if (linkBtn) {
+            const url = linkBtn.getAttribute('href');
+            card.style.cursor = 'pointer'; // Ensure cursor is set
+            card.onclick = (e) => {
+                // If user clicks the button explicitly, let default handle it?
+                // Actually, often it's better to verify.
+                // If the button is an <a> tag, clicking it fires the link naturally.
+                // If clicking elsewhere, we fire window.open.
+                if (!e.target.closest('.btn-case-study')) {
+                    window.open(url, '_blank');
+                }
+            };
+        }
+    });
 
+    // --- Carousel / App Showcase Logic ---
     const tabsTrack = document.getElementById('appTabsTrack');
     const detailCard = document.getElementById('appDetailCard');
 
@@ -219,11 +238,14 @@ window.addEventListener('load', () => {
 
         function renderDetail(index) {
             const app = appsData[index];
-            // Fade out effect could be added here, for now direct update
+
+            // Make the entire card clickable
+            detailCard.onclick = () => {
+                window.open(app.link, '_blank');
+            };
+
             detailCard.innerHTML = `
-                <div class="app-detail-visual" style="background-image: url('${app.banner}');">
-                     <!-- Banner is background or img? Bg is better for cover -->
-                </div>
+                <div class="app-detail-visual" style="background-image: url('${app.banner}');"></div>
                 <div class="app-detail-content animate-slide-up">
                     <div class="app-detail-header">
                         <img src="${app.icon}" class="app-detail-icon-sm" alt="icon">
@@ -233,9 +255,10 @@ window.addEventListener('load', () => {
                         </div>
                     </div>
                     <div class="app-detail-actions">
-                        <a href="${app.link}" target="_blank" class="btn-play-store-lg">
+                        <!-- Changed from <a> to <div> to avoid nested click issues, handled by parent -->
+                        <div class="btn-play-store-lg">
                             <img src="images/bg_google_play_btn_1.png" alt="Get it on Google Play">
-                        </a>
+                        </div>
                     </div>
                 </div>
             `;

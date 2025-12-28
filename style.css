@@ -683,6 +683,24 @@ nav a:not(.nav-btn):hover {
     flex-direction: row-reverse;
 }
 
+.case-study-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    background: #fff;
+    cursor: pointer;
+    /* Clickable */
+    position: relative;
+}
+
+.case-study-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
 .f-image {
     flex: 1;
     border-radius: 20px;
@@ -2121,6 +2139,15 @@ nav a:not(.nav-btn):hover {
     border: 1px solid rgba(0, 0, 0, 0.03);
     margin-bottom: 40px;
     z-index: 1;
+    cursor: pointer;
+    /* Clickable */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
+    /* Lift effect */
 }
 
 .app-detail-visual {
@@ -2145,7 +2172,7 @@ nav a:not(.nav-btn):hover {
 
 
 .app-detail-content {
-    padding: 40px 60px;
+    padding: 20px 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -2208,8 +2235,8 @@ nav a:not(.nav-btn):hover {
 }
 
 .btn-play-store-lg img {
-    height: 110px;
-    /* Bigger button (PC Website) */
+    height: 80px;
+    /* Reduced button size */
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
     display: block;
