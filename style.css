@@ -1573,160 +1573,6 @@ nav a:not(.nav-btn):hover {
         justify-content: center;
     }
 
-    /* Tablet & Mobile: Switch to Stacked Layout */
-    .featured-overlap-card {
-        display: flex;
-        flex-direction: column-reverse;
-        /* Visual Top, Text Bottom */
-        gap: 0;
-        max-width: 100%;
-        /* Use full width available */
-        width: 100%;
-        align-items: center;
-        /* Center items */
-        padding-bottom: 0px;
-    }
-
-    .featured-container {
-        gap: 10px;
-    }
-
-    .featured-overlap-card:hover .visual-full-image {
-        transform: scale(1);
-    }
-
-    /* Visual Part (Top) */
-    .overlap-visual-content-container {
-        width: 100%;
-        height: auto;
-        min-height: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        z-index: 2;
-        background-color: transparent;
-        box-shadow: none;
-    }
-
-    .overlap-visual-content {
-        /* Auto height */
-        display: flex;
-        justify-content: center;
-        background-color: transparent;
-        box-shadow: none;
-    }
-
-    /* Text Part (Bottom) */
-    .overlap-text-content-container {
-        width: 100%;
-        z-index: 1;
-        margin: 0;
-        margin-top: 0;
-        box-shadow: none;
-    }
-
-    .overlap-text-content {
-        background-color: transparent;
-        width: 100%;
-        height: auto !important;
-        border-radius: 0 0 20px 20px;
-        padding: 20px 15px !important;
-        min-height: 0 !important;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    /* Standard Overlap Mobile (Both Items) -> LEFT ALIGN FORCE */
-    .overlap-text-content {
-        text-align: left !important;
-        align-items: flex-start !important;
-    }
-
-    /* PASTE THIS INSIDE YOUR EXISTING @MEDIA BLOCK */
-
-    .project-tags,
-    .overlap-text-content .project-tags {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        /* STOPS tags from dropping to next line */
-        justify-content: left;
-        width: 100% !important;
-        margin-left: 0 !important;
-        gap: 4px;
-        /* Tighten space between tags */
-    }
-
-    .tag-pill {
-        height: 30px;
-        white-space: nowrap !important;
-        /* STOPS text inside tag from breaking */
-        font-size: 0.65rem !important;
-        /* Make text smaller */
-        padding: 4px 8px !important;
-        /* Reduce padding */
-
-        /* PREVENTS the tag from being squashed */
-        flex-shrink: 0 !important;
-        min-width: auto !important;
-    }
-
-    /* Override any reversed-overlap specifics to match standard on mobile */
-    .reversed-overlap .overlap-text-content {
-        text-align: left !important;
-        align-items: flex-start !important;
-    }
-
-    .reversed-overlap .overlap-text-content .project-tags {
-        justify-content: flex-start !important;
-    }
-
-    /* Typography Matches on Mobile */
-    .wedo-label {
-        /* Removed as we use tags now, but keeping for safety if reused */
-        display: none;
-    }
-
-
-    /* Typography Matches */
-    .wedo-label {
-        margin-top: 20px;
-        font-size: 0.8 rem;
-        color: #555;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-    }
-
-    .wedo-title {
-        margin-top: -15px;
-        margin-bottom: 15px;
-        font-family: 'Inter', sans-serif;
-        font-size: 2rem;
-        font-weight: 800;
-    }
-
-    .wedo-link {
-        font-size: 1rem;
-        font-weight: 700;
-        color: #2563EB;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        border-bottom: 2px solid #2563EB;
-        width: fit-content;
-    }
-
-    .visual-full-image {
-        width: 100%;
-        /* Allow full width */
-        max-width: 90%;
-        /* Scale down slightly to fit nicely */
-        height: auto;
-        /* MAINTAIN ASPECT RATIO - No crop */
-        object-fit: contain;
-        /* Ensure it shows fully */
-        border-radius: 10px;
-        /* Slight radius for image itself if needed */
-    }
 }
 
 /* Hero Email Copy Style */
@@ -2401,18 +2247,13 @@ nav a:not(.nav-btn):hover {
 .sidebar-nav {
     position: fixed;
     left: 20px;
-    /* Floating slightly off edge for distinct look */
     top: 50%;
     transform: translateY(-50%);
     width: 70px;
-    /* Collapsed width */
     height: auto;
     background: #ffffff;
-    /* Solid White */
     border-radius: 20px;
-    /* Matching rounded aesthetics */
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
-    /* Distinct shadow + border */
     z-index: 1000;
     transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s ease, border-radius 0.4s ease;
     overflow: hidden;
@@ -2421,10 +2262,9 @@ nav a:not(.nav-btn):hover {
     flex-direction: column;
 }
 
-/* Expanded State (managed by JS class) */
+/* Expanded State */
 .sidebar-nav.expanded {
     width: 260px;
-    /* Optional: If content is tall, handle height? Auto is fine usually */
 }
 
 /* Toggle Button */
@@ -2440,6 +2280,8 @@ nav a:not(.nav-btn):hover {
     color: #0F172A;
     transition: background 0.2s ease;
     margin-bottom: 10px;
+    margin-left: 0;
+    /* Reset global margins if any */
 }
 
 .nav-toggle-btn:hover {
@@ -2472,11 +2314,12 @@ nav a:not(.nav-btn):hover {
     width: 100%;
 }
 
+/* Base Link Style (Collapsed) */
 .nav-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Default to Center */
+    /* Center icon by default */
     padding: 0;
     margin-left: 0;
     /* OVERRIDE GLOBAL nav a { margin-left: 40px } */
@@ -2491,19 +2334,17 @@ nav a:not(.nav-btn):hover {
 
 .nav-link:hover {
     background: #0044CC;
+    /* User Preference */
     color: #2563EB;
 }
 
 .nav-icon {
-    /* Simple Icon */
     display: flex;
     align-items: center;
     justify-content: center;
     min-width: 26px;
-    /* Reset width constraints */
     height: 26px;
     margin: 0;
-    /* No margins in collapsed state */
 }
 
 .nav-icon svg {
@@ -2516,18 +2357,16 @@ nav a:not(.nav-btn):hover {
     font-size: 1rem;
     font-weight: 600;
     display: none;
-    /* Completely hidden in collapsed */
+    /* Hidden when collapsed */
     opacity: 0;
     margin-left: 16px;
-    /* Gap between icon and text */
 }
 
-/* EXPLICT EXPANDED STATE CONFIGURATION */
+/* Expanded Link Style */
 .sidebar-nav.expanded .nav-link {
     justify-content: flex-start;
-    /* Align left */
+    /* Switch to left align */
     padding-left: 24px;
-    /* Space from left edge */
 }
 
 .sidebar-nav.expanded .nav-text {
@@ -2546,60 +2385,52 @@ nav a:not(.nav-btn):hover {
     }
 }
 
-/* Sub Navigation - ALWAYS VISIBLE if Expanded */
+/* Sub Navigation */
 .sub-nav {
     list-style: none;
     padding: 0 0 10px 0;
     margin: 0;
     background: #fff;
     max-height: 0;
-    /* Hidden when collapsed */
     overflow: hidden;
     transition: max-height 0.4s ease;
 }
 
 .sidebar-nav.expanded .sub-nav {
     max-height: 500px;
-    /* Open enough to show links */
     display: block;
 }
 
 .sub-link {
     display: block;
     padding: 12px 10px 12px 70px;
-    /* Indent */
     text-decoration: none;
     color: #94A3B8;
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.2s ease;
+    margin-left: 0;
+    /* Ensure no global margin */
 }
 
 .sub-link:hover {
     color: #2563EB;
     background: #F8FAFC;
     padding-left: 75px;
-    /* Slight nudge */
 }
 
 /* --- Mobile Responsive Overlay --- */
 @media (max-width: 1024px) {
     .sidebar-nav {
-        /* Reset Fixed Positioning for Button? No, keep it fixed. */
         position: fixed;
         top: 20px;
         left: 20px;
-        right: auto;
-        bottom: auto;
-        transform: none;
         width: 60px;
-        /* Just the button size initially */
         height: 60px;
         border-radius: 16px;
         padding: 0;
         z-index: 2000;
         overflow: hidden;
-        /* Hide list initially */
         transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -2607,12 +2438,10 @@ nav a:not(.nav-btn):hover {
         margin: 0;
         height: 60px;
         background: #fff;
-        /* Ensure it looks like a button */
         flex-shrink: 0;
-        /* Prevent shrinking so list items don't peek up */
     }
 
-    /* Expanded Mobile State: Full Screen Overlay */
+    /* Expanded Mobile State */
     .sidebar-nav.expanded {
         top: 0;
         left: 0;
@@ -2620,11 +2449,8 @@ nav a:not(.nav-btn):hover {
         height: 100vh;
         border-radius: 0;
         padding: 80px 40px;
-        /* More padding for left alignment content */
         align-items: flex-start;
-        /* LEFT ALIGNED CONTENT */
         overflow-y: auto;
-        /* Scrollable */
     }
 
     .sidebar-nav.expanded .nav-toggle-btn {
@@ -2632,32 +2458,21 @@ nav a:not(.nav-btn):hover {
         top: 20px;
         left: 20px;
         width: 60px;
-        height: 60px;
         background: transparent;
         z-index: 2001;
         justify-content: flex-start;
-        /* Align icon left inside button */
         padding-left: 18px;
-        /* Match normal icon padding */
     }
 
     .sidebar-nav.expanded .nav-list {
         width: 100%;
         max-width: 600px;
-        align-items: flex-start;
-        /* Left align items */
     }
 
     .sidebar-nav.expanded .nav-link {
-        width: 100%;
-        justify-content: flex-start;
-        /* Left align link content */
-        background: transparent;
         font-size: 1.5rem;
-        /* Larger font for mobile */
         height: 80px;
         padding-left: 0;
-        /* Remove extra padding, rely on container */
     }
 
     .sidebar-nav.expanded .nav-icon {
@@ -2671,22 +2486,7 @@ nav a:not(.nav-btn):hover {
         height: 32px;
     }
 
-    .sidebar-nav.expanded .nav-text {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
     .sidebar-nav.expanded .sub-nav {
-        background: transparent;
-        text-align: left;
         padding-left: 60px;
-        /* Indent sub items under icon */
-        width: 100%;
-    }
-
-    .sidebar-nav.expanded .sub-link {
-        padding: 15px 0;
-        font-size: 1.1rem;
-        color: #64748B;
     }
 }
