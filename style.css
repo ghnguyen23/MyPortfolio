@@ -2396,3 +2396,297 @@ nav a:not(.nav-btn):hover {
         transform: translateY(0);
     }
 }
+
+/* --- Subtle Left Sidebar Navigation --- */
+.sidebar-nav {
+    position: fixed;
+    left: 20px;
+    /* Floating slightly off edge for distinct look */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70px;
+    /* Collapsed width */
+    height: auto;
+    background: #ffffff;
+    /* Solid White */
+    border-radius: 20px;
+    /* Matching rounded aesthetics */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
+    /* Distinct shadow + border */
+    z-index: 1000;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s ease, border-radius 0.4s ease;
+    overflow: hidden;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Expanded State (managed by JS class) */
+.sidebar-nav.expanded {
+    width: 260px;
+    /* Optional: If content is tall, handle height? Auto is fine usually */
+}
+
+/* Toggle Button */
+.nav-toggle-btn {
+    width: 100%;
+    height: 60px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0F172A;
+    transition: background 0.2s ease;
+    margin-bottom: 10px;
+}
+
+.nav-toggle-btn:hover {
+    background: #F8FAFC;
+}
+
+.nav-toggle-btn svg {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-nav.expanded .nav-toggle-btn svg {
+    transform: none;
+    /* No rotation */
+}
+
+/* Lists and Links */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.nav-item {
+    position: relative;
+    width: 100%;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Default to Center */
+    padding: 0;
+    margin-left: 0;
+    /* OVERRIDE GLOBAL nav a { margin-left: 40px } */
+    text-decoration: none;
+    color: #64748B;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+    height: 56px;
+    width: 100%;
+}
+
+.nav-link:hover {
+    background: #0044CC;
+    color: #2563EB;
+}
+
+.nav-icon {
+    /* Simple Icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 26px;
+    /* Reset width constraints */
+    height: 26px;
+    margin: 0;
+    /* No margins in collapsed state */
+}
+
+.nav-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke-width: 1.8;
+}
+
+.nav-text {
+    font-size: 1rem;
+    font-weight: 600;
+    display: none;
+    /* Completely hidden in collapsed */
+    opacity: 0;
+    margin-left: 16px;
+    /* Gap between icon and text */
+}
+
+/* EXPLICT EXPANDED STATE CONFIGURATION */
+.sidebar-nav.expanded .nav-link {
+    justify-content: flex-start;
+    /* Align left */
+    padding-left: 24px;
+    /* Space from left edge */
+}
+
+.sidebar-nav.expanded .nav-text {
+    display: block;
+    opacity: 1;
+    animation: fadeInSafe 0.2s forwards;
+}
+
+@keyframes fadeInSafe {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Sub Navigation - ALWAYS VISIBLE if Expanded */
+.sub-nav {
+    list-style: none;
+    padding: 0 0 10px 0;
+    margin: 0;
+    background: #fff;
+    max-height: 0;
+    /* Hidden when collapsed */
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.sidebar-nav.expanded .sub-nav {
+    max-height: 500px;
+    /* Open enough to show links */
+    display: block;
+}
+
+.sub-link {
+    display: block;
+    padding: 12px 10px 12px 70px;
+    /* Indent */
+    text-decoration: none;
+    color: #94A3B8;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sub-link:hover {
+    color: #2563EB;
+    background: #F8FAFC;
+    padding-left: 75px;
+    /* Slight nudge */
+}
+
+/* --- Mobile Responsive Overlay --- */
+@media (max-width: 1024px) {
+    .sidebar-nav {
+        /* Reset Fixed Positioning for Button? No, keep it fixed. */
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        right: auto;
+        bottom: auto;
+        transform: none;
+        width: 60px;
+        /* Just the button size initially */
+        height: 60px;
+        border-radius: 16px;
+        padding: 0;
+        z-index: 2000;
+        overflow: hidden;
+        /* Hide list initially */
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-toggle-btn {
+        margin: 0;
+        height: 60px;
+        background: #fff;
+        /* Ensure it looks like a button */
+        flex-shrink: 0;
+        /* Prevent shrinking so list items don't peek up */
+    }
+
+    /* Expanded Mobile State: Full Screen Overlay */
+    .sidebar-nav.expanded {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        padding: 80px 40px;
+        /* More padding for left alignment content */
+        align-items: flex-start;
+        /* LEFT ALIGNED CONTENT */
+        overflow-y: auto;
+        /* Scrollable */
+    }
+
+    .sidebar-nav.expanded .nav-toggle-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 60px;
+        height: 60px;
+        background: transparent;
+        z-index: 2001;
+        justify-content: flex-start;
+        /* Align icon left inside button */
+        padding-left: 18px;
+        /* Match normal icon padding */
+    }
+
+    .sidebar-nav.expanded .nav-list {
+        width: 100%;
+        max-width: 600px;
+        align-items: flex-start;
+        /* Left align items */
+    }
+
+    .sidebar-nav.expanded .nav-link {
+        width: 100%;
+        justify-content: flex-start;
+        /* Left align link content */
+        background: transparent;
+        font-size: 1.5rem;
+        /* Larger font for mobile */
+        height: 80px;
+        padding-left: 0;
+        /* Remove extra padding, rely on container */
+    }
+
+    .sidebar-nav.expanded .nav-icon {
+        margin-right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .sidebar-nav.expanded .nav-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .sidebar-nav.expanded .nav-text {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .sidebar-nav.expanded .sub-nav {
+        background: transparent;
+        text-align: left;
+        padding-left: 60px;
+        /* Indent sub items under icon */
+        width: 100%;
+    }
+
+    .sidebar-nav.expanded .sub-link {
+        padding: 15px 0;
+        font-size: 1.1rem;
+        color: #64748B;
+    }
+}

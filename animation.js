@@ -214,6 +214,35 @@ window.addEventListener('load', () => {
     });
 
     // --- Carousel / App Showcase Logic ---
+    // --- Sidebar Navigation Logic ---
+    const sidebar = document.getElementById('sidebarNav');
+    const toggleBtn = document.getElementById('navToggleBtn');
+
+    if (sidebar && toggleBtn) {
+        // Toggle Menu
+        toggleBtn.onclick = () => {
+            sidebar.classList.toggle('expanded');
+        };
+
+        // Close when clicking a link (especially mobile)
+        const navLinks = sidebar.querySelectorAll('.nav-link, .sub-link');
+        navLinks.forEach(link => {
+            link.onclick = () => {
+                if (window.innerWidth <= 1024) { // Only close on mobile
+                    sidebar.classList.remove('expanded');
+                }
+            };
+        });
+
+        // Close when clicking outside (Mobile mainly)
+        document.addEventListener('click', (e) => {
+            if (!sidebar.contains(e.target) && sidebar.classList.contains('expanded')) {
+                sidebar.classList.remove('expanded');
+            }
+        });
+    }
+
+    // --- Tab Scroll Logic ---
     const tabsTrack = document.getElementById('appTabsTrack');
     const detailCard = document.getElementById('appDetailCard');
 
