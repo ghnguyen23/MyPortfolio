@@ -259,6 +259,7 @@ window.addEventListener('load', () => {
                 const img = document.createElement('img');
                 img.src = app.icon;
                 img.alt = app.title;
+                img.onload = () => checkScrollIndicator(); // Ensure arrows appear when content loads
 
                 tab.appendChild(img);
                 tabsTrack.appendChild(tab);
@@ -324,6 +325,59 @@ window.addEventListener('load', () => {
         let activeAppIndex = 0;
         renderTabs();
         renderDetail(0);
+
+        // --- SCROLL INDICATOR LOGIC ---
+        const tabsWrapper = document.querySelector('.app-tabs-wrapper');
+        const prevBtn = document.getElementById('scrollPrevBtn');
+        const nextBtn = document.getElementById('scrollNextBtn');
+
+        function checkScrollIndicator() {
+            if (!tabsWrapper) return;
+
+            // Allow 5px buffer for float calculation differences
+            // tabsTrack is defined in parent scope
+            if (!tabsTrack) return;
+
+            const maxScroll = tabsTrack.scrollWidth - tabsTrack.clientWidth - 5;
+            const currentScroll = tabsTrack.scrollLeft;
+            const isOverflowing = maxScroll > 0;
+
+            if (prevBtn) {
+                if (isOverflowing && currentScroll > 10) {
+                    prevBtn.classList.add('visible');
+                } else {
+                    prevBtn.classList.remove('visible');
+                }
+
+                // Click Handler if not already attached (simple way to ensure one handler)
+                prevBtn.onclick = () => {
+                    tabsTrack.scrollBy({ left: -150, behavior: 'smooth' });
+                };
+            }
+
+            if (nextBtn) {
+                if (isOverflowing && currentScroll < maxScroll) {
+                    nextBtn.classList.add('visible');
+                } else {
+                    nextBtn.classList.remove('visible');
+                }
+
+                // Click Handler
+                nextBtn.onclick = () => {
+                    tabsTrack.scrollBy({ left: 150, behavior: 'smooth' });
+                };
+            }
+        }
+
+        // Check on load, resize, and scroll
+        tabsTrack.addEventListener('scroll', checkScrollIndicator);
+        window.addEventListener('resize', checkScrollIndicator);
+
+        // Initial check with delay
+        setTimeout(checkScrollIndicator, 100);
+
+        // Backup check
+        setInterval(checkScrollIndicator, 1000);
     }
 });
 
